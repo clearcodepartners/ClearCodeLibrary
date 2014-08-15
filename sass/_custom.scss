@@ -1,0 +1,187 @@
+// Your custom SCSS should be written here...
+
+.mainlogo {
+  width: 327px !important;
+  height: 60px !important;
+}
+
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(359deg); }
+  to   {-webkit-transform: rotate(0deg);}
+}
+
+$focus_border : #000;
+$yellow_color : #ffffcc;
+$green_color  : #97FF94;
+$red_color    : #FF7373;
+
+.field input{
+  &:focus{
+    border: 1px solid $focus_border;
+  }
+}
+.field.green{
+  input {
+    background: $green_color;
+  }
+  &:before{
+    font-family: "entypo";
+    content: "\2713";
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 999;
+    color: #000;
+  }
+}
+.field.red{
+  input {
+    background: $red_color;
+  }
+  &:before{
+    font-family: "entypo";
+    content: "\2715";
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 999;
+    color: #000;
+  }
+}
+
+.field.yellow2 {
+  input {
+    background: $yellow_color;
+  }
+}
+.field.yellow, .field.yellow3 {
+  input {
+    background: $yellow_color;
+  }
+  &:before{
+    -webkit-animation: rotation 2s infinite linear;
+    font-family: "entypo";
+    content: "\1f504";
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 999;
+    color: #000;
+  }
+}
+.picker.metro{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  &:after{
+    right: 15px !important;
+  }
+}
+
+.picker.active{ border: 1px solid $focus_border; }
+.picker.yellow {
+  background: $yellow_color;
+  &:after{ content:""; }
+  &:before{
+    -webkit-animation: rotation 2s infinite linear;
+    font-family: "entypo";
+    content: "\1f504";
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 999;
+    color: #000;
+  }
+}
+.picker.green {
+  background: $green_color;
+  &:after{ content:""; }
+  &:before{
+    font-family: "entypo";
+    content: "\2713";
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 999;
+    color: #000;
+  }
+}
+
+.section{
+  background: #ffffff;
+  padding: 25px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  margin-top: 25px;
+}
+.section h4{
+  margin-bottom: 10px;
+}
+body > .row:last-child{
+  padding-bottom: 100px;
+}
+.section.category > h4{
+  margin-bottom: 20px;
+}
+.section.category > .ajax_auto_save:not(:last-child){
+  border-bottom: 1px dashed #dfdfdf;
+  margin-bottom: 10px;
+}
+.calendar .row{
+  margin-bottom: 20px;
+}
+.day{
+  border: 1px solid $primary-color;
+  background: $primary-color;
+  color: white;
+  height: 50px;
+}
+.day.blankz{
+  background: #dfdfdf;
+}
+.day.event{
+
+}
+.day.ttl{
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.leftborder{
+  border-right: 2px solid $primary-color;
+  height: 50px;
+}
+.picker select{
+  font-family: "ITC Avant Garde";
+}
+.field input, .field input[type="*"], .field textarea{
+  font-weight: 400;
+}

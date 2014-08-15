@@ -1,0 +1,3935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="ClearCode Library" version="2.4.0&#10;">
+  <partials/>
+  <file path="class/User.class.php" generated-path="class.User.class.html" hash="baf3a05accf44b629a24c29ea7dc8d88" package="ClearCode\User">
+    <docblock line="0">
+      <description>File for the User Class</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="Mike Flynn" link="mailto:mflynn@cngann.com"/>
+      <tag name="package" line="0" description="ClearCode\User"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="17" package="ClearCode\User">
+      <extends>\Lib</extends>
+      <implements>\Iterator</implements>
+      <name>User</name>
+      <full_name>\User</full_name>
+      <docblock line="17">
+        <description>User</description>
+        <long-description>All of the information associated with a single user</long-description>
+        <tag name="package" line="17" description="ClearCode\User"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="25" package="ClearCode\User">
+        <name>$info</name>
+        <full_name>\User::info</full_name>
+        <default>array()</default>
+        <docblock line="25">
+          <description>Raw User Information</description>
+          <long-description></long-description>
+          <tag name="access" line="25" description="private"/>
+          <tag name="var" line="25" description="" type="array" variable="$info">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="32" package="ClearCode\User">
+        <name>$name</name>
+        <full_name>\User::name</full_name>
+        <default>""</default>
+        <docblock line="32">
+          <description>Full Name</description>
+          <long-description></long-description>
+          <tag name="access" line="32" description="public"/>
+          <tag name="var" line="32" description="&lt;p&gt;Full Name&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="37" package="ClearCode\User">
+        <name>$id</name>
+        <full_name>\User::id</full_name>
+        <default>0</default>
+        <docblock line="37">
+          <description>ID</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="39" package="ClearCode\User">
+        <name>$empty</name>
+        <full_name>\User::empty</full_name>
+        <default>true</default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\User">
+        <name>$status_arr</name>
+        <full_name>\User::status_arr</full_name>
+        <default>array(0 =&gt; array('login' =&gt; true))</default>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="47" package="ClearCode\User">
+        <name>$permissions</name>
+        <full_name>\User::permissions</full_name>
+        <default>array()</default>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="54" package="ClearCode\User">
+        <name>$is_new</name>
+        <full_name>\User::is_new</full_name>
+        <default>false</default>
+        <docblock line="54">
+          <description>Is this a new user
+A flag to indicate the success of a user's creation.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="203" package="ClearCode\User">
+        <name>$position</name>
+        <full_name>\User::position</full_name>
+        <default>0</default>
+        <docblock line="203">
+          <description>Position</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="208" package="ClearCode\User">
+        <name>$loops</name>
+        <full_name>\User::loops</full_name>
+        <default>array()</default>
+        <docblock line="208">
+          <description>Loop Array</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="213" package="ClearCode\User">
+        <name>$loops_keys</name>
+        <full_name>\User::loops_keys</full_name>
+        <default>array()</default>
+        <docblock line="213">
+          <description>Loop Keys</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\User">
+        <name>__construct</name>
+        <full_name>\User::__construct()</full_name>
+        <docblock line="64">
+          <description>Constructor</description>
+          <long-description>Load the information for the specified user</long-description>
+          <tag name="param" line="64" description="&lt;p&gt;The User ID or new Username&lt;/p&gt;" type="string|int" variable="$id">
+            <type>string</type>
+            <type>int</type>
+          </tag>
+          <tag name="param" line="64" description="" type="null|string" variable="$password">
+            <type>null</type>
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default>null</default>
+          <type>string|int</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default>null</default>
+          <type>null|string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="109" package="ClearCode\User">
+        <name>get_customers</name>
+        <full_name>\User::get_customers()</full_name>
+        <docblock line="109">
+          <description>Get Customers</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="119" package="ClearCode\User">
+        <name>set_name</name>
+        <full_name>\User::set_name()</full_name>
+        <docblock line="119">
+          <description>Set User's Name</description>
+          <long-description></long-description>
+          <tag name="return" line="119" description="Name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="132" package="ClearCode\User">
+        <name>can</name>
+        <full_name>\User::can()</full_name>
+        <docblock line="132">
+          <description>Check Permissions</description>
+          <long-description>Is User allowed to perform the specified action</long-description>
+          <tag name="param" line="132" description="&lt;p&gt;Permission to check&lt;/p&gt;" type="string" variable="$perm">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="132" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$perm</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="140" package="ClearCode\User">
+        <name>is_admin</name>
+        <full_name>\User::is_admin()</full_name>
+        <docblock line="140">
+          <description>Is the User an Admin</description>
+          <long-description></long-description>
+          <tag name="return" line="140" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="150" package="ClearCode\User">
+        <name>__get</name>
+        <full_name>\User::__get()</full_name>
+        <docblock line="150">
+          <description>"Magic" get Handler</description>
+          <long-description>Checks to see if there is any User specific data for the "Magic" get first, then runs regular "Magic" get</long-description>
+          <tag name="param" line="150" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="150" description="Value" type="\$v">
+            <type>\$v</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="159" package="ClearCode\User">
+        <name>__unset</name>
+        <full_name>\User::__unset()</full_name>
+        <docblock line="159">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="159" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="159" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="175" package="ClearCode\User">
+        <name>__set</name>
+        <full_name>\User::__set()</full_name>
+        <docblock line="175">
+          <description>"Magic" set Handler</description>
+          <long-description>Checks to see if there is any User specific data for the "Magic" set first, then runs regular "Magic" set</long-description>
+          <tag name="todo" line="175" description="should this update the database?"/>
+          <tag name="param" line="175" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="175" description="&lt;p&gt;Value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="175" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="196" package="ClearCode\User">
+        <name>__invoke</name>
+        <full_name>\User::__invoke()</full_name>
+        <docblock line="196">
+          <description>"Magic" invoke handler</description>
+          <long-description>When class is called as a function, return it's "empty" status</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="218" package="ClearCode\User">
+        <name>build_loops</name>
+        <full_name>\User::build_loops()</full_name>
+        <docblock line="218">
+          <description>Build Loops</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="227" package="ClearCode\User">
+        <name>rewind</name>
+        <full_name>\User::rewind()</full_name>
+        <docblock line="227">
+          <description>Rewind Iterations</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="232" package="ClearCode\User">
+        <name>current</name>
+        <full_name>\User::current()</full_name>
+        <docblock line="232">
+          <description>Current Iteration</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="237" package="ClearCode\User">
+        <name>key</name>
+        <full_name>\User::key()</full_name>
+        <docblock line="237">
+          <description>Current Iteration Key</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="242" package="ClearCode\User">
+        <name>next</name>
+        <full_name>\User::next()</full_name>
+        <docblock line="242">
+          <description>Next Iteration</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="247" package="ClearCode\User">
+        <name>valid</name>
+        <full_name>\User::valid()</full_name>
+        <docblock line="247">
+          <description>Continue?</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <property final="false" static="false" visibility="public" line="17">
+        <name>$empty</name>
+        <default/>
+        <docblock>
+          <description/>
+          <long-description/>
+          <tag name="var" description="" type="bool" line="17">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag name="magic" line="17"/>
+          <tag name="property" line="17" description="" type="bool" variable="$empty">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="17">
+        <name>$status_arr</name>
+        <default/>
+        <docblock>
+          <description/>
+          <long-description/>
+          <tag name="var" description="" type="array" line="17">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag name="magic" line="17"/>
+          <tag name="property" line="17" description="" type="array" variable="$status_arr">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+    </class>
+    <markers>
+      <todo line="175">should this update the database?</todo>
+    </markers>
+    <source>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</source>
+  </file>
+  <file path="class/Database/Database.class.php" generated-path="class.Database.Database.class.html" hash="5c0090c8e05be829511052db8bd97837" package="ClearCode\Database">
+    <docblock line="0">
+      <description>The File for the Database Class</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="Mike Flynn" link="mailto:mflynn@cngann.com"/>
+      <tag name="package" line="0" description="ClearCode\Database"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="18" package="ClearCode\Database">
+      <extends>\Lib</extends>
+      <name>Database</name>
+      <full_name>\Database</full_name>
+      <docblock line="18">
+        <description>The Database Interface Library</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="ClearCode\Database"/>
+        <tag name="todo" line="18" description="* Add a filters api for a specific table::column relationship ( example: run md5() on user::password when changed )&#10;* Add &quot;Add Table&quot;, &quot;Edit Table&quot;, and &quot;Drop Table&quot;&#10;* Add &quot;Add Column&quot;, &quot;Edit Column&quot;, and &quot;Drop Column&quot;&#10;*"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="24" package="ClearCode\Database">
+        <name>$connected</name>
+        <full_name>\Database::connected</full_name>
+        <default>false</default>
+        <docblock line="24">
+          <description>Is Currently Connected</description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="" type="boolean" variable="$connected">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="30" package="ClearCode\Database">
+        <name>$cache</name>
+        <full_name>\Database::cache</full_name>
+        <default>array()</default>
+        <docblock line="30">
+          <description>Query Cache</description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="&lt;p&gt;Cache&lt;/p&gt;" type="array[]" variable="$cache">
+            <type>array[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="36" package="ClearCode\Database">
+        <name>$link</name>
+        <full_name>\Database::link</full_name>
+        <default></default>
+        <docblock line="36">
+          <description>Database Link</description>
+          <long-description></long-description>
+          <tag name="var" line="36" description="&lt;p&gt;Link&lt;/p&gt;" type="resource" variable="$link">
+            <type>resource</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="43" package="ClearCode\Database">
+        <name>$table_alias</name>
+        <full_name>\Database::table_alias</full_name>
+        <default>array('users' =&gt; 'user')</default>
+        <docblock line="43">
+          <description>Table Alias Array</description>
+          <long-description></long-description>
+          <tag name="access" line="43" description="private"/>
+          <tag name="var" line="43" description="" type="array" variable="$table_alias">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="54" package="ClearCode\Database">
+        <name>$queue_status</name>
+        <full_name>\Database::queue_status</full_name>
+        <default>false</default>
+        <docblock line="54">
+          <description>Queue Status</description>
+          <long-description></long-description>
+          <tag name="access" line="54" description="private"/>
+          <tag name="var" line="54" description="" type="bool" variable="$queue_status">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="62" package="ClearCode\Database">
+        <name>$queue_array</name>
+        <full_name>\Database::queue_array</full_name>
+        <default>array()</default>
+        <docblock line="62">
+          <description>Query Queue</description>
+          <long-description></long-description>
+          <tag name="access" line="62" description="private"/>
+          <tag name="var" line="62" description="" type="array[]" variable="$queue_array">
+            <type>array[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="130" package="ClearCode\Database">
+        <name>$db_name</name>
+        <full_name>\Database::db_name</full_name>
+        <default>""</default>
+        <docblock line="130">
+          <description>Database Name</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="271" package="ClearCode\Database">
+        <name>$tables</name>
+        <full_name>\Database::tables</full_name>
+        <default>array()</default>
+        <docblock line="271">
+          <description>Tables</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="71" package="ClearCode\Database">
+        <name>queue</name>
+        <full_name>\Database::queue()</full_name>
+        <docblock line="71">
+          <description>Queue</description>
+          <long-description></long-description>
+          <tag name="access" line="71" description="public"/>
+          <tag name="param" line="71" description="&lt;p&gt;Status (null returns current, boolean set)&lt;/p&gt;" type="boolean|null" variable="$status">
+            <type>boolean</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="71" description="Current Status" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$status</name>
+          <default>null</default>
+          <type>boolean|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="91" package="ClearCode\Database">
+        <name>start_queue</name>
+        <full_name>\Database::start_queue()</full_name>
+        <docblock line="91">
+          <description>Start Queue</description>
+          <long-description></long-description>
+          <tag name="see" line="91" description="" link="\Database::queue()"/>
+          <tag name="return" line="91" description="Current Status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="99" package="ClearCode\Database">
+        <name>end_queue</name>
+        <full_name>\Database::end_queue()</full_name>
+        <docblock line="99">
+          <description>End Queue</description>
+          <long-description></long-description>
+          <tag name="see" line="99" description="" link="\Database::queue()"/>
+          <tag name="return" line="99" description="Current Status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="106" package="ClearCode\Database">
+        <name>process_queue</name>
+        <full_name>\Database::process_queue()</full_name>
+        <docblock line="106">
+          <description>Process Queue</description>
+          <long-description></long-description>
+          <tag name="return" line="106" description="An array of the queued database results, in order" type="mixed[]">
+            <type>mixed[]</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="122" package="ClearCode\Database">
+        <name>clear_queue</name>
+        <full_name>\Database::clear_queue()</full_name>
+        <docblock line="122">
+          <description>Clear Queue w/o Processing</description>
+          <long-description></long-description>
+          <tag name="return" line="122" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Database">
+        <name>connect</name>
+        <full_name>\Database::connect()</full_name>
+        <docblock line="141">
+          <description>Connect to database</description>
+          <long-description></long-description>
+          <tag name="param" line="141" description="&lt;p&gt;host (IP/URL/localhost)&lt;/p&gt;" type="string" variable="$host">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="141" description="&lt;p&gt;Username&lt;/p&gt;" type="string" variable="$user">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="141" description="&lt;p&gt;Password&lt;/p&gt;" type="string" variable="$pass">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="141" description="&lt;p&gt;Database Name&lt;/p&gt;" type="string" variable="$db">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$host</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$user</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$pass</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$db</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Database">
+        <name>disconnect</name>
+        <full_name>\Database::disconnect()</full_name>
+        <docblock line="156">
+          <description>Disconnect from Database</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="169" package="ClearCode\Database">
+        <name>__destruct</name>
+        <full_name>\Database::__destruct()</full_name>
+        <docblock line="169">
+          <description>Destructor</description>
+          <long-description></long-description>
+          <tag name="uses" line="169" description="to close the database connection" link="Database::disconnect()"/>
+          <tag name="return" line="169" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="178" package="ClearCode\Database">
+        <name>get_primary_key</name>
+        <full_name>\Database::get_primary_key()</full_name>
+        <docblock line="178">
+          <description>Get Primary Key of Table</description>
+          <long-description></long-description>
+          <tag name="param" line="178" description="&lt;p&gt;Table&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="178" description="Primary Key Column Name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="202" package="ClearCode\Database">
+        <name>q</name>
+        <full_name>\Database::q()</full_name>
+        <docblock line="202">
+          <description>Run Query</description>
+          <long-description>* Runs a MySQL Query on the database.</long-description>
+          <tag name="param" line="202" description="&lt;p&gt;Mysql Query to Run&lt;/p&gt;" type="string" variable="$q">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="202" description="&lt;p&gt;Type of Return&lt;/p&gt;&#10;&lt;ul&gt;&#10;&lt;li&gt;'a', 'assoc'          : Returns an Associative Array of Associative Arrays where the Key value of the outside array is equal too $col&lt;/li&gt;&#10;&lt;li&gt;'n', 'numeric         : Returns an Array of Numeric Arrays&lt;/li&gt;&#10;&lt;li&gt;'sa', 'single_assoc'   : Returns a Single Associative Array&lt;/li&gt;&#10;&lt;li&gt;'sn', 'single_numeric  : Returns a Single Numeric Array&lt;/li&gt;&#10;&lt;li&gt;'v', 'value'          : Returns a Single Value from the column set with $col from the first result row found&lt;/li&gt;&#10;&lt;li&gt;'i', 'insert'         : Use only for Insert statements.  Returns the Insert Id&lt;/li&gt;&#10;&lt;li&gt;'u', 'update'         : Use only for Update statements.  Returns the number of results updated.&lt;/li&gt;&#10;&lt;li&gt;'d', 'delete'         : Use only for Delete statements. Returns the number of rows deleted.&lt;/li&gt;&#10;&lt;/ul&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="202" description="&lt;p&gt;Column modifier specific to type&lt;/p&gt;" type="string" variable="$col">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="202" description="" type="bool" variable="$silent">
+            <type>bool</type>
+          </tag>
+          <tag name="return" line="202" description="formatted return type" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$q</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default>''</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$col</name>
+          <default>''</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$silent</name>
+          <default>false</default>
+          <type>bool</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="278" package="ClearCode\Database">
+        <name>get_tables</name>
+        <full_name>\Database::get_tables()</full_name>
+        <docblock line="278">
+          <description>Get Tables</description>
+          <long-description></long-description>
+          <tag name="return" line="278" description="TableName =&gt; Columns" type="array[]">
+            <type>array[]</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="291" package="ClearCode\Database">
+        <name>get_cols</name>
+        <full_name>\Database::get_cols()</full_name>
+        <docblock line="291">
+          <description>Get Columns</description>
+          <long-description></long-description>
+          <tag name="param" line="291" description="&lt;p&gt;The table to get the columns from&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="291" description="Column Name =&gt; [ Type, Length, Null, Default ]" type="array[]">
+            <type>array[]</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="308" package="ClearCode\Database">
+        <name>table</name>
+        <full_name>\Database::table()</full_name>
+        <docblock line="308">
+          <description>Get Table Alias</description>
+          <long-description></long-description>
+          <tag name="uses" line="308" description="to check for any aliases to return" link="Database::$table_alias"/>
+          <tag name="param" line="308" description="" type="string[]" variable="$as_arr">
+            <type>string[]</type>
+          </tag>
+          <tag name="param" line="308" description="&lt;p&gt;name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="308" description="Alias" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$as_arr</name>
+          <default>array()</default>
+          <type>string[]</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="318" package="ClearCode\Database">
+        <name>is_numeric</name>
+        <full_name>\Database::is_numeric()</full_name>
+        <docblock line="318">
+          <description>Is Column Type Numeric</description>
+          <long-description></long-description>
+          <tag name="param" line="318" description="&lt;p&gt;Column Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="318" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="327" package="ClearCode\Database">
+        <name>is_string</name>
+        <full_name>\Database::is_string()</full_name>
+        <docblock line="327">
+          <description>Is Column Type String</description>
+          <long-description></long-description>
+          <tag name="param" line="327" description="&lt;p&gt;Column Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="327" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="336" package="ClearCode\Database">
+        <name>is_date</name>
+        <full_name>\Database::is_date()</full_name>
+        <docblock line="336">
+          <description>Is Column Type Date or Time</description>
+          <long-description></long-description>
+          <tag name="param" line="336" description="&lt;p&gt;Column Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="336" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="348" package="ClearCode\Database">
+        <name>clean_value</name>
+        <full_name>\Database::clean_value()</full_name>
+        <docblock line="348">
+          <description>Clean Mysql Value</description>
+          <long-description></long-description>
+          <tag name="param" line="348" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="348" description="&lt;p&gt;Column Name&lt;/p&gt;" type="string" variable="$column">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="348" description="&lt;p&gt;Raw Value&lt;/p&gt;" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="348" description="Parsed Value" type="string|bool">
+            <type>string</type>
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$column</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="399" package="ClearCode\Database">
+        <name>make_insert</name>
+        <full_name>\Database::make_insert()</full_name>
+        <docblock line="399">
+          <description>Make Insert String</description>
+          <long-description></long-description>
+          <tag name="param" line="399" description="&lt;p&gt;The table to insert too&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="399" description="&lt;p&gt;the Array of info to insert, where key is the column name&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="399" description="the insert query" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="415" package="ClearCode\Database">
+        <name>make_update</name>
+        <full_name>\Database::make_update()</full_name>
+        <docblock line="415">
+          <description>Make Update String</description>
+          <long-description></long-description>
+          <tag name="param" line="415" description="&lt;p&gt;The table to insert too&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="415" description="&lt;p&gt;the data to update [ column =&gt; value ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="415" description="&lt;p&gt;where info&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="415" description="the insert query" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="433" package="ClearCode\Database">
+        <name>make_delete</name>
+        <full_name>\Database::make_delete()</full_name>
+        <docblock line="433">
+          <description>Make Delete String</description>
+          <long-description></long-description>
+          <tag name="param" line="433" description="&lt;p&gt;The table to insert too&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="433" description="&lt;p&gt;column name for the where clause&lt;/p&gt;" type="string" variable="$key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="433" description="&lt;p&gt;the value for the where clause&lt;/p&gt;" type="string" variable="$val">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="433" description="the delete query" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="445" package="ClearCode\Database">
+        <name>insert_id</name>
+        <full_name>\Database::insert_id()</full_name>
+        <docblock line="445">
+          <description>Get Insert Id</description>
+          <long-description></long-description>
+          <tag name="return" line="445" description="The Insert Id" type="int">
+            <type>int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="454" package="ClearCode\Database">
+        <name>err</name>
+        <full_name>\Database::err()</full_name>
+        <docblock line="454">
+          <description>Get Mysql Error</description>
+          <long-description></long-description>
+          <tag name="return" line="454" description="mysql_error" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="465" package="ClearCode\Database">
+        <name>insert</name>
+        <full_name>\Database::insert()</full_name>
+        <docblock line="465">
+          <description>Do Database Insert</description>
+          <long-description></long-description>
+          <tag name="param" line="465" description="&lt;p&gt;The table to insert too&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="465" description="&lt;p&gt;the Array of info to insert, where key is the column name&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="465" description="insert_id on success, FALSE on fail" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="476" package="ClearCode\Database">
+        <name>i</name>
+        <full_name>\Database::i()</full_name>
+        <docblock line="476">
+          <description>Do Database Insert</description>
+          <long-description></long-description>
+          <tag name="param" line="476" description="&lt;p&gt;The table to insert too&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="476" description="&lt;p&gt;the Array of info to insert, where key is the column name&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="476" description="insert_id on success, FALSE on fail" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="487" package="ClearCode\Database">
+        <name>update</name>
+        <full_name>\Database::update()</full_name>
+        <docblock line="487">
+          <description>Do Database Update</description>
+          <long-description></long-description>
+          <tag name="param" line="487" description="&lt;p&gt;The table to update&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="487" description="&lt;p&gt;the data to update [ column =&gt; value ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="487" description="&lt;p&gt;{@see Database::where()}&lt;/p&gt;" type="mixed[]" variable="$where">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="return" line="487" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type>mixed[]</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="498" package="ClearCode\Database">
+        <name>u</name>
+        <full_name>\Database::u()</full_name>
+        <docblock line="498">
+          <description>Do Database Update</description>
+          <long-description></long-description>
+          <tag name="param" line="498" description="&lt;p&gt;The table to update&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="498" description="&lt;p&gt;the data to update [ column =&gt; value ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="498" description="&lt;p&gt;{@see Database::where()}&lt;/p&gt;" type="mixed[]" variable="$where">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="return" line="498" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type>mixed[]</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="508" package="ClearCode\Database">
+        <name>delete</name>
+        <full_name>\Database::delete()</full_name>
+        <docblock line="508">
+          <description>Do Database Delete</description>
+          <long-description></long-description>
+          <tag name="param" line="508" description="&lt;p&gt;The table to delete from&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="508" description="&lt;p&gt;{@see Database::where()}&lt;/p&gt;" type="mixed[]" variable="$where">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="return" line="508" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type>mixed[]</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="518" package="ClearCode\Database">
+        <name>d</name>
+        <full_name>\Database::d()</full_name>
+        <docblock line="518">
+          <description>Do Database Delete</description>
+          <long-description></long-description>
+          <tag name="param" line="518" description="&lt;p&gt;The table to delete from&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="518" description="&lt;p&gt;{@see Database::where()}&lt;/p&gt;" type="mixed[]" variable="$where">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="return" line="518" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>false</default>
+          <type>mixed[]</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="536" package="ClearCode\Database">
+        <name>s</name>
+        <full_name>\Database::s()</full_name>
+        <docblock line="536">
+          <description>Do Select</description>
+          <long-description></long-description>
+          <tag name="see" line="536" description="for $where syntax" link="\Database::where()"/>
+          <tag name="see" line="536" description="for $type syntax" link="\Database::q()"/>
+          <tag name="todo" line="536" description="Add &quot;as&quot; support"/>
+          <tag name="todo" line="536" description="Add &quot;join&quot; support"/>
+          <tag name="param" line="536" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string|string[]|array[]" variable="$table">
+            <type>string</type>
+            <type>string[]</type>
+            <type>array[]</type>
+          </tag>
+          <tag name="param" line="536" description="&lt;p&gt;Fields&lt;/p&gt;" type="mixed[]" variable="$fields">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="param" line="536" description="&lt;p&gt;Where Information&lt;/p&gt;" type="mixed[]" variable="$where">
+            <type>mixed[]</type>
+          </tag>
+          <tag name="param" line="536" description="&lt;p&gt;Type of Data to return&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string|string[]|array[]</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default>array("*")</default>
+          <type>mixed[]</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default>array()</default>
+          <type>mixed[]</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default>'a'</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="592" package="ClearCode\Database">
+        <name>where</name>
+        <full_name>\Database::where()</full_name>
+        <docblock line="592">
+          <description>Build Where Conditions</description>
+          <long-description>where_arr = [ 'Column' (required) , 'Value' (required) , 'Comparitor' (optional), 'Joiner' (optional) ]
+
+Usage: [ ['id','1', '=', 'AND'], [ ['username', 'joe'], ['password','schmoe'], " OR "] ]
+
+Result: `id` = '1' OR ( `username` = "joe" AND `password` = "schmoe" )</long-description>
+          <tag name="todo" line="592" description="add support for table.col = table2.col"/>
+          <tag name="param" line="592" description="&lt;p&gt;A multidimentional array in a mix of these formats:&lt;/p&gt;&#10;&lt;ul&gt;&#10;&lt;li&gt;[ where_arr,where_arr,... ]&lt;/li&gt;&#10;&lt;li&gt;[ [ where_arr,where_arr,... 'Joiner' ], ...]&lt;/li&gt;&#10;&lt;/ul&gt;" type="array[]" variable="$args">
+            <type>array[]</type>
+          </tag>
+          <tag name="return" line="592" description="Where String" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$args</name>
+          <default></default>
+          <type>array[]</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$as_arr</name>
+          <default>array()</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="638" package="ClearCode\Database">
+        <name>select</name>
+        <full_name>\Database::select()</full_name>
+        <docblock line="638">
+          <description>Select</description>
+          <long-description>Alias for Database::s()</long-description>
+          <tag name="uses" line="638" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="638" description="for $where syntax" link="\Database::where()"/>
+          <tag name="see" line="638" description="for $type syntax" link="\Database::q()"/>
+          <tag name="param" line="638" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="638" description="&lt;p&gt;Fields&lt;/p&gt;" type="array" variable="$fields">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="638" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="638" description="&lt;p&gt;Type of Data to return&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="653" package="ClearCode\Database">
+        <name>select_assoc</name>
+        <full_name>\Database::select_assoc()</full_name>
+        <docblock line="653">
+          <description>Select Associative Array</description>
+          <long-description>Runs a Select query against the database using Database::s() and returns an Associative Array</long-description>
+          <tag name="uses" line="653" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="653" description="for $where syntax" link="\Database::where()"/>
+          <tag name="param" line="653" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="653" description="&lt;p&gt;Fields&lt;/p&gt;" type="array" variable="$fields">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="653" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="653" description="Associative Array of Results" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="668" package="ClearCode\Database">
+        <name>select_numeric</name>
+        <full_name>\Database::select_numeric()</full_name>
+        <docblock line="668">
+          <description>Select Numeric Array</description>
+          <long-description>Runs a Select query against the database using Database::s() and returns a Numeric Array</long-description>
+          <tag name="uses" line="668" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="668" description="for $where syntax" link="\Database::where()"/>
+          <tag name="param" line="668" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="668" description="&lt;p&gt;Fields&lt;/p&gt;" type="array" variable="$fields">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="668" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="668" description="Numeric Array of Results" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="684" package="ClearCode\Database">
+        <name>select_single_assoc</name>
+        <full_name>\Database::select_single_assoc()</full_name>
+        <docblock line="684">
+          <description>Select Single Associative Array</description>
+          <long-description>Runs a Select query against the database using Database::s() and returns an Associative Array for a single result</long-description>
+          <tag name="uses" line="684" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="684" description="for $where syntax" link="\Database::where()"/>
+          <tag name="param" line="684" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="684" description="&lt;p&gt;Fields&lt;/p&gt;" type="array" variable="$fields">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="684" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="684" description="Associative Array of Single Result" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="700" package="ClearCode\Database">
+        <name>select_single_numeric</name>
+        <full_name>\Database::select_single_numeric()</full_name>
+        <docblock line="700">
+          <description>Select Single Numeric Array</description>
+          <long-description>Runs a Select query against the database using Database::s() and returns a Numeric Array for a single result</long-description>
+          <tag name="uses" line="700" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="700" description="for $where syntax" link="\Database::where()"/>
+          <tag name="param" line="700" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="700" description="&lt;p&gt;Fields&lt;/p&gt;" type="array" variable="$fields">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="700" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="700" description="Numeric Array of Single Result" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fields</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="715" package="ClearCode\Database">
+        <name>select_var</name>
+        <full_name>\Database::select_var()</full_name>
+        <docblock line="715">
+          <description>Select Variable</description>
+          <long-description>Runs a Select query against the database using Database::s() and returns a single variable from a single result</long-description>
+          <tag name="uses" line="715" description="for everything;" link="Database::s()"/>
+          <tag name="see" line="715" description="for $where syntax" link="\Database::where()"/>
+          <tag name="param" line="715" description="&lt;p&gt;Table Name&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="715" description="&lt;p&gt;Field&lt;/p&gt;" type="array" variable="$field">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="715" description="&lt;p&gt;Where Information&lt;/p&gt;" type="array" variable="$where">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="715" description="The variable to return" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$field</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <markers>
+      <todo line="18">* Add a filters api for a specific table::column relationship ( example: run md5() on user::password when changed )
+* Add "Add Table", "Edit Table", and "Drop Table"
+* Add "Add Column", "Edit Column", and "Drop Column"
+*</todo>
+      <todo line="536">Add "as" support</todo>
+      <todo line="536">Add "join" support</todo>
+      <todo line="592">add support for table.col = table2.col</todo>
+    </markers>
+    <source>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</source>
+  </file>
+  <file path="class/Lib.class.php" generated-path="class.Lib.class.html" hash="36ca8de6f072225c59ee45d983aa4466" package="ClearCode\Library">
+    <docblock line="0">
+      <description>The Master Library</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="Mike Flynn" link="mailto:mflynn@cngann.com"/>
+      <tag name="package" line="0" description="ClearCode\Library"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="13" package="ClearCode\Library">
+      <extends/>
+      <name>Lib</name>
+      <full_name>\Lib</full_name>
+      <docblock line="13">
+        <description>Master Library
+Methods all classes should have</description>
+        <long-description></long-description>
+        <tag name="package" line="13" description="ClearCode\Library"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <source>eJzdV91T4kgQf8a/oqUoAcvTd1n8WECXKlw9wN2r8qzUJJnAnCGhJhOUdf3fr3smCYEEbtnHe9nF/u5ff0zn0+V8Oj84Oz4+gGMYTzncsUhxCQNhSyaXRL1isZqGEu7EC4cbfxkE8Gnm0f9XTjBhQXDqhLMLLTlnzgubcOj4nMlO6PK/V3bODg4q5KeCghtONImjEzcC5vvg+CyKeATRNIx9F6ZswbXMDvsVclDRimQW3tGbcUeK1Ts2EU4VukwxYFKypaYb5tWCSUOEmksC36dcclAIRqqnyQIDUqHkrlZDb5V5bPvCSbTaxkaj2UJO3nmX2/Ek0yE1KRZMcah1e58fb1HRY37EW2sRU6Q2izjc2/9wR22Gm7Frrp2QI45/3Q7uP18PRk91164/F+O0150g5kxDUu4kY9dm+IuSLFhMGZhEEPv+uvlOLCUPFDxGXG7aJhrUHCNhxanEZhrEKEkkr7eBG4ENI8VUHOXc2WHoJ3gXUdEqpVVI6z/iSq3nMGeSzbAfpAgmUAvgK5vxUtYCvjE/TnmSq1gGsAhFoYu8OHCUCAOwrIirRi04QeXmOwpUhNeoqamI/rhAT+12mxhgTFGzVRImFeKpFjwDCRDjozSZ232SSQKeiTfu5jIpj3ui426+J7FBQ0Q6FRNe2itNODqCUg7l12zCJZTQ4RwaZsKsF760+JuIVGRQWmWf083AONedCc0WlMOhI4EvLHD9NVT6kV4B0Zw7whOYfaqwIBQAlS73w1D3IC4RZKJyBmMOvwSUHIKrsh+2kxHbkkYclKfxSPSdqeyXxX+0rg7DpIBd+3v1T2yU8FrAcUbXBdJCby1wFl0RnGRD+Uu4ET9++DzKY6FCN4RuCK8cXhmuMXIHKgSkzvAZ+NXqG1byvjC41j9CDx6IznES0z0lJgGa3YGtg2+j6XiG8J4dJ0Gj+P8y8wiXeBGAkab+Egzp+zNezgvGsydEIRMXZrW6vvn73dzrQXP3U6ClhJq3I9zSt28QMhcfI4/FPqoFXihnjLLIQUciZjDdRC5/bpzQo2PY5k3DQASzfX4CWEw06fixyxOB9Bro0P1Tir6U+rrrlngC/nYOT1ClylWhfQFVveerJ3B6egrPe4y/jxlZSTK4m8lpdhWZlyyZ2Q3w8d2w9OlmZlpfUBW9PiyjTaZwMeQmnt44JKaSh3w2VyhnDXt/PvZGYzyACLT6c06LCA0lY57ZL4vmsA31FM/6StlGh0cmP9uceB/Fem8cOlkBC4eQOXPwTj0/L95A+wJOio1SeImTxW3EtkSennql7blxJgI2s6YnbkquR9N7NDE0H31335TSpb+eVv7Y5K9ZWGkZhZvdAvmKlqQ8pij0VE1oa90H++Kue8kKA4yvrL1gtzvP+01/ntdowoZHfbUWXK6+OZJVSJ9Vr0JNIQhhnu1fWuo4fFklzSkc5a7nlSJb6ZEaXRv5JiiorrUC3T4/9R1Wm0MnDJQMfb/kPOpss7YVlQYaNAs4u5UPcW8QAVk4/pqatlD6xYVKl0DFwvMwufsr65sknfvcArFTzPPGzDKhzzpsMvxn/XDTIsUGxBMc+g/AXFfybGEnmslTusEuy5/Wppg30rxhtQVHveG33vCp/mU8frA6g37v69jqP+htmMa3Vaa129pf1s398Pv1sNvr0q8dNguSrTw+meywd3c/7lnX3W4iQjCWVTuepbnqn6unAhU+Di4v/gUlcMah</source>
+  </file>
+  <file path="class/Auth.class.php" generated-path="class.Auth.class.html" hash="59508a6d7150612ba9b9effb7d9fdbfc" package="ClearCode\User">
+    <docblock line="0">
+      <description>The file for the Auth Class</description>
+      <long-description></long-description>
+      <tag name="todo" line="0" description="* Impliment HIPPA password strength guidelines"/>
+      <tag name="author" line="0" description="Mike Flynn" link="mailto:mflynn@cngann.com"/>
+      <tag name="package" line="0" description="ClearCode\User"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="15" package="ClearCode\User">
+      <extends>\Lib</extends>
+      <name>Auth</name>
+      <full_name>\Auth</full_name>
+      <docblock line="15">
+        <description>Authentication Library
+Library for User Authentication handling</description>
+        <long-description></long-description>
+        <tag name="package" line="15" description="ClearCode\User"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="23" package="ClearCode\User">
+        <name>__construct</name>
+        <full_name>\Auth::__construct()</full_name>
+        <docblock line="23">
+          <description>Constructor</description>
+          <long-description>Sets the default values and Loads the current User</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="35" package="ClearCode\User">
+        <name>auth</name>
+        <full_name>\Auth::auth()</full_name>
+        <docblock line="35">
+          <description>Authenticate</description>
+          <long-description></long-description>
+          <tag name="param" line="35" description="&lt;p&gt;Username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="35" description="&lt;p&gt;Password&lt;/p&gt;" type="string" variable="$pass">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="35" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$pass</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="ClearCode\User">
+        <name>logout</name>
+        <full_name>\Auth::logout()</full_name>
+        <docblock line="54">
+          <description>Logout</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="61" package="ClearCode\User">
+        <name>log_auth</name>
+        <full_name>\Auth::log_auth()</full_name>
+        <docblock line="61">
+          <description>Log Auth</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pass</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$message</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$user</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="76" package="ClearCode\User">
+        <name>login</name>
+        <full_name>\Auth::login()</full_name>
+        <docblock line="76">
+          <description>Process Login Request</description>
+          <long-description></long-description>
+          <tag name="uses" line="76" description="to log the attempt" link="Auth::log_login()"/>
+          <tag name="uses" line="76" description="to process the attempt" link="Auth::auth()"/>
+          <tag name="param" line="76" description="&lt;p&gt;Username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="76" description="&lt;p&gt;Password&lt;/p&gt;" type="string" variable="$pass">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="76" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$pass</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="90" package="ClearCode\User">
+        <name>log_login</name>
+        <full_name>\Auth::log_login()</full_name>
+        <docblock line="90">
+          <description>Log Login Attempt</description>
+          <long-description></long-description>
+          <tag name="todo" line="90" description="Convert to logging to the Database"/>
+          <tag name="param" line="90" description="&lt;p&gt;Username&lt;/p&gt;" type="string" variable="$u">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="90" description="&lt;p&gt;Password&lt;/p&gt;" type="string" variable="$p">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="90" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$u</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="98" package="ClearCode\User">
+        <name>logged_in</name>
+        <full_name>\Auth::logged_in()</full_name>
+        <docblock line="98">
+          <description>Is a user Logged in</description>
+          <long-description></long-description>
+          <tag name="return" line="98" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <markers>
+      <todo line="90">Convert to logging to the Database</todo>
+    </markers>
+    <source>eJy1Vt9v2zYQfnb+iksRgJLnLOuA9cFtnAbZhhpIO2PZHobMEGiKlolKpEZSXo0g//vuSMmRf2RZH/YQhTkev/vu490x767qVX1yMRyewBB+W0lYqhI/xoLHP64bv4KbkjtH2++9yQ0thjCt6lJVUnv4MJ3NrqFGl7+NzcF5K3WBp4pG5bJUWsajHJEQ9KP6LOHncqM1vKuW9Pu90AXX+lthqknwrLn4zAuJYSW3NyaXf/7upMWti5OTAREdoBcRw+hKcK+Mhlu1sNxuwla7DjnQyX3fFdc58iqC83PRBhRuICjzKIL84qXOHaE/II9IhBBujMacG+GNDYZovZPeBQVzueRN6WHNy0Y6wNhwa3geN0VjLWkYQ3aHMfBg2WgR2GaZ6AIk6QPuDM78SrnzSYkoWYvukvTt/laDmNH8uMO3p4bsEUYhLK/o+lAaOKPTmlcyUKPFUS+6dZi1V996WOkbq2FhTHmYDVVBsgUfRYQ2LVVn3HtZ1ajcJbSp5IvziZOlFD5DTyMSRhBZaQo2umdDNh/d379S9atRd6CQPlM1mpl3bAQ5ZpkA++O8Os/hw1iNyeixcpMUvoEEvkfKb76LnxTSEbAJm89bNVV+lMia24RRDgjFVI5f5NDlREy6dQeklokwjfZJP8cUJvAmhVau7c0VWdBoyUuH+rCP/AtctycwEFG6Ct8xIOEO/RQtL0JNtTBYbsJv75S1eTaY5lPNEFYHfNacT7atfXoJVf5DEu/sK8J1BRL590gjuOA6YXhWafYy5CcDM2krtwdEOMplPK+UThDlLLv76e5u+sunexZsbI75ve43SLxYlUfbk3skMj++WVjT1DubFxd5U9XJ1icyeiYJbOF4oV6segk84k+/PW9NYRq/7Zy6WZRKwLaByrDdTgInnUMjTgFsSLM51u0IFzr+CdCqNfbEDmIkGO4ViVWIihOxreOdmUNNoDRafb8PgVvLNwmrXMHgctJDYM5z37hoDcPiCl5T6eIWgWfYPbSHt6ebSlol4nBIqchp0fqqOkL0WxwbON0VnAIcKjCzRiAfUkJp+FX+hWPY9wcfxokzfjwmLUINILg3JE0Y023LHvoH3YJr3UbZd/9/huvaqPxwuEbmz0zXp2p8xu1I7R6f1seLLMp7fZg6/c9Aj+Qaq6YVtaD8cEli/cg9X3D3b0/RCzJ9rUZbASih9AH267udR90b06UfKxAPsW4gBkuciCnMj+gyxfceQhmjOoXMQen/8kiWwTmjKnzoRuIpybpJDmdV+hZwhDz+A9Sr5vw=</source>
+  </file>
+  <file path="index.php" generated-path="index.html" hash="aa83794c3e1dcc0449855d9dc30ae723" package="ClearCode">
+    <docblock line="0">
+      <description>ClearCodeLibrary Testing Facility</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="ClearCode"/>
+    </docblock>
+    <source>eJyNVO9P2zAQ/dz+FUfWySmCRtNAk6AJk9i6TePDNNi+IITc5NJYdezMcVoixP++c360FBhaPzTxvbt7z+cXT8+KrBgG+/tD2Idzidyc6wQvxNxwU8MVllaoBcx4LKSwtUv6WPB4yRe4zaZoMBy4HgPCLy03Fi6xLIVWLkJY2a5uS4f549PhYJv/E/9UwiB8U4LKYiMK21WZFvGZIGhCOtnLlV+RJ2ieFmVN9FEZxpkGb5qIFcSSl2XIjF6z6HHAm/iwByNe2ewwknqxwORWKH8MZ+ClYoUQa1nlqoQYlUWDiQcn4Nk1yi3mjScei7zTDWF21LengSUEvUJyoRdCNU270XtA7aZBdtR0FKm/h3lha390++Xz1TVry4ViN+Px/XDgEp4hEIbAajaGRo/CNXzSuc9o2+wArlmjjUEYAeMS6egSTHklLbs5cOKPo6no9YtYq8M4w3hJYwtEBBcNCQgFvAQPJjCqSjSHkftXPMdW+3GjfYCyxP/WwNUCzb8kcGtp/mSorQySMONC0ok85nxoR/Z81t0wvGmqTQ452kwnISt0adnmsFzTXXukAmXiso0mQKiisj10d7cWCYLFOwstUDGwdYEhczEGbhwho2AheYyZlmTOkP3qBuU2QkQ7bLwoUCXwGmnDWdD7Wpuk4y163j7ecxdPuH/0+A5rTqapciiMyN0NMLeKQWlrSQ2IzWYn7z5M3m9+b6mYQ2YwDdkb9vSc+hHSGU0D3m+x+3eTbz8T8oXzbncils8l9m1KS/cBOonWfc/0MO41+o71NKCne//NZYXtKnBw0KemWttNxSZ9J7NLmeukbk1KqpDHmd8Y2bl6tHS2HK02jmn6JdH9aPlADZJuseoWrm/r9jY7aHvT022rN2UPbufhvXizzUje85stbaL9zXYW/QUYY8sn</source>
+  </file>
+  <file path="class/DOM/Dom.class.php" generated-path="class.DOM.Dom.class.html" hash="110af8406c495fef583c09303b32753c" package="ClearCode\Library">
+    <docblock line="0">
+      <description>DOM</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="Mike Flynn" link="mailto:mflynn@cngann.com"/>
+      <tag name="package" line="0" description="ClearCode\Library"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="13" package="ClearCode\Library">
+      <extends>\Lib</extends>
+      <name>Dom</name>
+      <full_name>\Dom</full_name>
+      <docblock line="13">
+        <description>HTML DOM Library</description>
+        <long-description>A Library used to create HTML easily</long-description>
+        <tag name="package" line="13" description="ClearCode\Library"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="20" package="ClearCode\Library">
+        <name>$singles</name>
+        <full_name>\Dom::singles</full_name>
+        <default>array('input', 'hr', 'br', 'link', 'img')</default>
+        <docblock line="20">
+          <description>Elements that don't need closing element</description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="private"/>
+          <tag name="var" line="20" description="" type="string[]" variable="$singles">
+            <type>string[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="29" package="ClearCode\Library">
+        <name>$type</name>
+        <full_name>\Dom::type</full_name>
+        <default>''</default>
+        <docblock line="29">
+          <description>Type</description>
+          <long-description>The current element type</long-description>
+          <tag name="var" line="29" description="" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="38" package="ClearCode\Library">
+        <name>$children</name>
+        <full_name>\Dom::children</full_name>
+        <default>array()</default>
+        <docblock line="38">
+          <description>Children</description>
+          <long-description>The children of the DOM element</long-description>
+          <tag name="var" line="38" description="" type="\Dom[]" variable="$children">
+            <type>\Dom[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="44" package="ClearCode\Library">
+        <name>$attributes</name>
+        <full_name>\Dom::attributes</full_name>
+        <default>array()</default>
+        <docblock line="44">
+          <description>The current DOM element attributes</description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="" type="array[]" variable="$attributes">
+            <type>array[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="ClearCode\Library">
+        <name>__construct</name>
+        <full_name>\Dom::__construct()</full_name>
+        <docblock line="54">
+          <description>Make new Dom</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="54" description="&lt;p&gt;Attributes&lt;/p&gt;" type="array" variable="$attr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="54" description="&lt;p&gt;Content&lt;/p&gt;" type="string|null" variable="$text">
+            <type>string</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="54" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$text</name>
+          <default>null</default>
+          <type>string|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="71" package="ClearCode\Library">
+        <name>attr</name>
+        <full_name>\Dom::attr()</full_name>
+        <docblock line="71">
+          <description>Set Attribute
+Either: attr("Name","Value")
+Or: attr(["Name", "Value"], ["Name","Value"])
+Or: attr([["Name", "Value"], ["Name","Value"]])</description>
+          <long-description></long-description>
+          <tag name="param" line="71" description="&lt;p&gt;The attributes to set&lt;/p&gt;" type="mixed" variable="$args,...">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="86" package="ClearCode\Library">
+        <name>prepend</name>
+        <full_name>\Dom::prepend()</full_name>
+        <docblock line="86">
+          <description>Prepend New Child Element</description>
+          <long-description></long-description>
+          <tag name="param" line="86" description="&lt;p&gt;Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="86" description="&lt;p&gt;Attributes&lt;/p&gt;" type="array" variable="$attr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="86" description="&lt;p&gt;Content&lt;/p&gt;" type="string" variable="$text">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="86" description="Child Element" type="\Dom">
+            <type>\Dom</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$text</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="100" package="ClearCode\Library">
+        <name>append</name>
+        <full_name>\Dom::append()</full_name>
+        <docblock line="100">
+          <description>Append New Child Element</description>
+          <long-description></long-description>
+          <tag name="param" line="100" description="&lt;p&gt;Type&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="100" description="&lt;p&gt;Attributes&lt;/p&gt;" type="array" variable="$attr">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="100" description="&lt;p&gt;Content&lt;/p&gt;" type="string" variable="$text">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="100" description="Child Element" type="\Dom">
+            <type>\Dom</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$text</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="111" package="ClearCode\Library">
+        <name>append_text</name>
+        <full_name>\Dom::append_text()</full_name>
+        <docblock line="111">
+          <description>Append Text</description>
+          <long-description></long-description>
+          <tag name="param" line="111" description="&lt;p&gt;Content&lt;/p&gt;" type="string" variable="$text">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="111" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$text</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="119" package="ClearCode\Library">
+        <name>prepend_text</name>
+        <full_name>\Dom::prepend_text()</full_name>
+        <docblock line="119">
+          <description>Prepend Text</description>
+          <long-description></long-description>
+          <tag name="param" line="119" description="&lt;p&gt;Content&lt;/p&gt;" type="string" variable="$text">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="119" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$text</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>__toString</name>
+        <full_name>\Dom::__toString()</full_name>
+        <docblock line="126">
+          <description>Output Dom</description>
+          <long-description></long-description>
+          <tag name="return" line="126" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <source>eJzVVk1v2zgQPcu/YioYsRQ4TnttEidBsos9NE2BBr04hsFItEVYogSS8tZw8987/JBNyW6aYreHAollcWbee/NB0ueXVVb1To+Pe3AMt/d3+nFFapWVAu7YksLf+ZpzOC/m+nmV8AXhfJSUxdh4ViRZkgWFm5wScVOm9PEDexJErNF62gs0boB+/zzcfdDo0Fhx0RiumxWoJU1BlZAIShS1EZRIlhvnl5gCQ5XkREq4LQugXxXlqdTIsOn1AqtCg/yV04JyJUFlREFa8oECTpE3yUvJ+AKodbDeVyRJKGJWgq1QkltcEQFSCfSeTKGvo3IqjQ1FBM53a4ALmAwYr2o1GMIgE/rzyXzmjC/1kxWLwfSsJfNhXVk295pRSGohUFgjEFTbxVMF/a3NCKqfcpbYRRQzGLSpbjKWp4jcpXPLUM6xVtS0zq+Nx4oV14VIfCCfeAuFlejm6SXmMQBRmMlTrVxdLQ8Rgqw1U8fqc+1MB9juCE4zp/9qxX4SFRGkaBVv14DGasgtPlx31fkA33id54iCMwg3JVe7YRJU1YLDqmTpVve85oliJYfZLCk5ItSJioyEoSPTaQwd3gVo8HiDgUFfZUyejPOSpLOUzkmdKxnFZ57JJBIEFzYl37LtiDFq5EuYmC9TeG/Khr5sHr2hRaXWkRESxzAvcWcmmX0HIqG/hIux0Wk16RgmZ7wuqGBJ1F9ikKPUISbQSgxoLmnUsi1txrF1eO7pf797n6naVd7tZoajKd6bcYnCj6Sg4TD8QvKahrH1uG+sE2cGZ8eaTtoR072QV8Q0QW4ECvYVz5I+EQs5HI1GZr69kcTDTVK133xD59qqY7HR2jZbUDXT766vuiNYXjOKkXGcvJ3GcHQETZ/00rspVt3NmldgK2HShNke6y7AYdj4pWAU2JDtcHbjoVPA8ciZVLavq8NwSwO0Otvr9SdBKzzB4SNuVnNANQf3b9u2L+1YfaXsq2h18Kiyil+3d42qWc1lxuYq6mxKHLcwPrRbsfAaxZ5fLSLHYaParfeC98t8Xf1hVSbV64vcLcB/KV5S1nyvUTGcwLsfV/UBQV8o5C/eDzbzmQ6LrN4N/GSMXFpweGv9v/Lc+B/SV9Uye624+1rhD6Xu/eyYrbZDV6cqPxtbc4bqoQjPN949+Ayh6e/2jOoeRt51tsKzSsAIIWDTXz4j1mMYjkiaSvyBmVEZoccofAwdZOM7DneHNG9O052CYTNU7ndh7K7MjqLt1az1mJdGTWTzj92yvUYd+flpK1kn5dmfaGEHFf8ux98Be4t7RQ==</source>
+  </file>
+  <file path="class/Database/MetaData.class.php" generated-path="class.Database.MetaData.class.html" hash="deb843d8aa66bb02f1433597bb1bdfd7" package="ClearCode\Database">
+    <docblock line="0">
+      <description>MetaData Library</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="ClearCode\Database"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="10" package="ClearCode\Database">
+      <extends>\Lib</extends>
+      <implements>\Iterator</implements>
+      <name>MetaData</name>
+      <full_name>\MetaData</full_name>
+      <docblock line="10">
+        <description>MetaData Class</description>
+        <long-description></long-description>
+        <tag name="package" line="10" description="ClearCode\Database"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="16" package="ClearCode\Database">
+        <name>$parent_type</name>
+        <full_name>\MetaData::parent_type</full_name>
+        <default>''</default>
+        <docblock line="16">
+          <description>Parent Type</description>
+          <long-description></long-description>
+          <tag name="var" line="16" description="&lt;p&gt;Parent Type&lt;/p&gt;" type="string" variable="$parent_type">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="22" package="ClearCode\Database">
+        <name>$parent_id</name>
+        <full_name>\MetaData::parent_id</full_name>
+        <default>0</default>
+        <docblock line="22">
+          <description>Parent Id</description>
+          <long-description></long-description>
+          <tag name="var" line="22" description="&lt;p&gt;Parent id&lt;/p&gt;" type="int" variable="$parent_id">
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="28" package="ClearCode\Database">
+        <name>$info</name>
+        <full_name>\MetaData::info</full_name>
+        <default>array()</default>
+        <docblock line="28">
+          <description>MetaData Info</description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;MetaData Info&lt;/p&gt;" type="mixed[]" variable="$info">
+            <type>mixed[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="34" package="ClearCode\Database">
+        <name>$info_ids</name>
+        <full_name>\MetaData::info_ids</full_name>
+        <default>array()</default>
+        <docblock line="34">
+          <description>MetaData Ids</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="&lt;p&gt;MetaData Ids&lt;/p&gt;" type="int[]" variable="$info_ids">
+            <type>int[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="39" package="ClearCode\Database">
+        <name>$info_dates</name>
+        <full_name>\MetaData::info_dates</full_name>
+        <default>array()</default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;MetaData TimeStamps&lt;/p&gt;" type="int[]" variable="$info_dates">
+            <type>int[]</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="44" package="ClearCode\Database">
+        <name>$set_filters</name>
+        <full_name>\MetaData::set_filters</full_name>
+        <default>array()</default>
+        <docblock line="44">
+          <description>Set Filters</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="49" package="ClearCode\Database">
+        <name>$get_filters</name>
+        <full_name>\MetaData::get_filters</full_name>
+        <default>array()</default>
+        <docblock line="49">
+          <description>Get Filters</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="176" package="ClearCode\Database">
+        <name>$position</name>
+        <full_name>\MetaData::position</full_name>
+        <default>0</default>
+        <docblock line="176">
+          <description>Position</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="181" package="ClearCode\Database">
+        <name>$loops</name>
+        <full_name>\MetaData::loops</full_name>
+        <default>array()</default>
+        <docblock line="181">
+          <description>Loop Array</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="186" package="ClearCode\Database">
+        <name>$loops_keys</name>
+        <full_name>\MetaData::loops_keys</full_name>
+        <default>array()</default>
+        <docblock line="186">
+          <description>Loop Keys</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="20" package="ClearCode\Library">
+        <name>$data</name>
+        <full_name>\Lib::data</full_name>
+        <default>array()</default>
+        <docblock line="20">
+          <description>"Magic" Data array</description>
+          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;Where the &quot;Magic&quot; data is stored&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="26" package="ClearCode\Library">
+        <name>$DEBUG</name>
+        <full_name>\Lib::DEBUG</full_name>
+        <default>false</default>
+        <docblock line="26">
+          <description>Debug</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="34" package="ClearCode\Library">
+        <name>$db</name>
+        <full_name>\Lib::db</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Database Object</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="\Database" variable="$db">
+            <type>\Database</type>
+          </tag>
+          <tag name="see" line="34" description="" link="\$GLOBALS['db']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="ClearCode\Library">
+        <name>$metadata</name>
+        <full_name>\Lib::metadata</full_name>
+        <default>null</default>
+        <docblock line="41">
+          <description>MetaData Object</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="\MetaData" variable="$metadata">
+            <type>\MetaData</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="49" package="ClearCode\Library">
+        <name>$current_user</name>
+        <full_name>\Lib::current_user</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>Current User</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="\User" variable="$current_user">
+            <type>\User</type>
+          </tag>
+          <tag name="see" line="49" description="" link="\$GLOBALS['user']"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="55" package="ClearCode\Library">
+        <name>$debug</name>
+        <full_name>\Lib::debug</full_name>
+        <default>false</default>
+        <docblock line="55">
+          <description>Debug Status</description>
+          <long-description></long-description>
+          <tag name="var" line="55" description="" type="bool" variable="$DEBUG">
+            <type>bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="126" package="ClearCode\Library">
+        <name>$current_type</name>
+        <full_name>\Lib::current_type</full_name>
+        <default>""</default>
+        <docblock line="126">
+          <description>Current Type</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="132" package="ClearCode\Library">
+        <name>$id</name>
+        <full_name>\Lib::id</full_name>
+        <default>null</default>
+        <docblock line="132">
+          <description>ID</description>
+          <long-description></long-description>
+          <tag name="var" line="132" description="&lt;p&gt;ID&lt;/p&gt;" type="null|int" variable="">
+            <type>null</type>
+            <type>int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="56" package="ClearCode\Database">
+        <name>__construct</name>
+        <full_name>\MetaData::__construct()</full_name>
+        <docblock line="56">
+          <description>Constructor</description>
+          <long-description></long-description>
+          <tag name="param" line="56" description="&lt;p&gt;Id&lt;/p&gt;" type="int|null" variable="$id">
+            <type>int</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="56" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default>null</default>
+          <type>int|null</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="69" package="ClearCode\Database">
+        <name>__set</name>
+        <full_name>\MetaData::__set()</full_name>
+        <docblock line="69">
+          <description>"Magic" set Handler</description>
+          <long-description></long-description>
+          <tag name="param" line="69" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="69" description="&lt;p&gt;Value&lt;/p&gt;" type="mixed" variable="$v">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="69" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Database">
+        <name>__get</name>
+        <full_name>\MetaData::__get()</full_name>
+        <docblock line="85">
+          <description>"Magic" get Handler</description>
+          <long-description></long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Database">
+        <name>__isset</name>
+        <full_name>\MetaData::__isset()</full_name>
+        <docblock line="95">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="105" package="ClearCode\Database">
+        <name>__unset</name>
+        <full_name>\MetaData::__unset()</full_name>
+        <docblock line="105">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="105" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="105" description="" type="\void;">
+            <type>\void;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="118" package="ClearCode\Database">
+        <name>set_parent_id</name>
+        <full_name>\MetaData::set_parent_id()</full_name>
+        <docblock line="118">
+          <description>Set Parent Id</description>
+          <long-description></long-description>
+          <tag name="param" line="118" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="118" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>int</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="139" package="ClearCode\Database">
+        <name>add_set_filter</name>
+        <full_name>\MetaData::add_set_filter()</full_name>
+        <docblock line="139">
+          <description>Add Set Filter</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$priority</name>
+          <default>10</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="149" package="ClearCode\Database">
+        <name>add_get_filter</name>
+        <full_name>\MetaData::add_get_filter()</full_name>
+        <docblock line="149">
+          <description>Add Get Filter</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$priority</name>
+          <default>10</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="159" package="ClearCode\Database">
+        <name>do_set_filters</name>
+        <full_name>\MetaData::do_set_filters()</full_name>
+        <docblock line="159">
+          <description>Do Set Filter</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$val</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="168" package="ClearCode\Database">
+        <name>do_get_filters</name>
+        <full_name>\MetaData::do_get_filters()</full_name>
+        <docblock line="168">
+          <description>Do Get Filter</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$val</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="191" package="ClearCode\Database">
+        <name>build_loops</name>
+        <full_name>\MetaData::build_loops()</full_name>
+        <docblock line="191">
+          <description>Build Loops</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="203" package="ClearCode\Database">
+        <name>rewind</name>
+        <full_name>\MetaData::rewind()</full_name>
+        <docblock line="203">
+          <description>Rewind Iterations</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Database">
+        <name>current</name>
+        <full_name>\MetaData::current()</full_name>
+        <docblock line="208">
+          <description>Current Iteration</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="213" package="ClearCode\Database">
+        <name>key</name>
+        <full_name>\MetaData::key()</full_name>
+        <docblock line="213">
+          <description>Current Iteration Key</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="218" package="ClearCode\Database">
+        <name>next</name>
+        <full_name>\MetaData::next()</full_name>
+        <docblock line="218">
+          <description>Next Iteration</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="223" package="ClearCode\Database">
+        <name>valid</name>
+        <full_name>\MetaData::valid()</full_name>
+        <docblock line="223">
+          <description>Continue?</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="ClearCode\Library">
+        <name>__set</name>
+        <full_name>\Lib::__set()</full_name>
+        <docblock line="64">
+          <description>"Magic" Setter</description>
+          <long-description></long-description>
+          <tag name="param" line="64" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="64" description="&lt;p&gt;Value&lt;/p&gt;" type="string" variable="$v">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$v</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="75" package="ClearCode\Library">
+        <name>__get</name>
+        <full_name>\Lib::__get()</full_name>
+        <docblock line="75">
+          <description>"Magic" Getter</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="75" description="Value" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="85" package="ClearCode\Library">
+        <name>__isset</name>
+        <full_name>\Lib::__isset()</full_name>
+        <docblock line="85">
+          <description>"Magic" isset Handler</description>
+          <long-description>Is the specified "Magic" value set?</long-description>
+          <tag name="param" line="85" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="is $n set" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="ClearCode\Library">
+        <name>__unset</name>
+        <full_name>\Lib::__unset()</full_name>
+        <docblock line="95">
+          <description>"Magic" unset Handler</description>
+          <long-description>Unsets the specified "Magic" value</long-description>
+          <tag name="param" line="95" description="&lt;p&gt;Name&lt;/p&gt;" type="string" variable="$n">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="95" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$n</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="ClearCode\Library">
+        <name>load_defaults</name>
+        <full_name>\Lib::load_defaults()</full_name>
+        <docblock line="141">
+          <description>Load Default Information</description>
+          <long-description>Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</long-description>
+          <tag name="param" line="141" description="&lt;p&gt;The Default &quot;Magic&quot; data ex: [ &quot;Name&quot; =&gt; &quot;Value&quot;, ... ]&lt;/p&gt;" type="array" variable="$arr">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="141" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$arr</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="156" package="ClearCode\Library">
+        <name>load_user</name>
+        <full_name>\Lib::load_user()</full_name>
+        <docblock line="156">
+          <description>Load User</description>
+          <long-description>Sets the Current User</long-description>
+          <tag name="see" line="156" description="" link="\Lib::current_user"/>
+          <tag name="return" line="156" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="ClearCode\Library">
+        <name>load_metadata</name>
+        <full_name>\Lib::load_metadata()</full_name>
+        <docblock line="168">
+          <description>Load MetaData</description>
+          <long-description>Loads the MetaData Object for the current Object</long-description>
+          <tag name="param" line="168" description="&lt;p&gt;Id&lt;/p&gt;" type="int" variable="$id">
+            <type>int</type>
+          </tag>
+          <tag name="return" line="168" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="ClearCode\Library">
+        <name>debug_on</name>
+        <full_name>\Lib::debug_on()</full_name>
+        <docblock line="177">
+          <description>Turn Debugging On</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="184" package="ClearCode\Library">
+        <name>debug_off</name>
+        <full_name>\Lib::debug_off()</full_name>
+        <docblock line="184">
+          <description>Turn Debugging Off</description>
+          <long-description></long-description>
+          <tag name="return" line="184" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="ClearCode\Library">
+        <name>debug</name>
+        <full_name>\Lib::debug()</full_name>
+        <docblock line="195">
+          <description>Debug</description>
+          <long-description>Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</long-description>
+          <tag name="param" line="195" description="&lt;p&gt;Controll&lt;/p&gt;" type="bool|null" variable="$p">
+            <type>bool</type>
+            <type>null</type>
+          </tag>
+          <tag name="return" line="195" description="Current debug status" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$p</name>
+          <default>null</default>
+          <type>bool|null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="ClearCode\Library">
+        <name>get_ip</name>
+        <full_name>\Lib::get_ip()</full_name>
+        <docblock line="208">
+          <description>Get IP address</description>
+          <long-description></long-description>
+          <tag name="return" line="208" description="IP address" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="214" package="ClearCode\Library">
+        <name>dump</name>
+        <full_name>\Lib::dump()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <source>eJy1WFtv2zYUfrZ/BVMIk52kSPrazEm7FOuCXlCsxV48waBN2iEiS4JEufGa/Pedw4tEibTjbOiLYfPcP348PPSvV8VtMTw7Ph6SY/KJS/qOSko+inlJyy2uvSno4o6uOLlOOS2vc8b/RpU5rTiIz4YDtB24xtcprSq1tM92oIwXqNua8nvJM1ZhfCLWRcrXPJMVuZG8pDIvfwyHAx0PvX+hJUjJt23B9cKbDS1JJUuRrUhUKOlMgrSniXEHRSk2VPKu3oTE8UUoxg1zIghYsGaCWRWhVUK+QWlCzruOm5JvsmXuOF+Le86mCYkErAe0Ov6VzoTQsqTb0XhXAFZ1k7feIa/KV/MCKLUdQTyXDMwcp9/Emn+VdF3s8q31d3j/yiX5XaSw+QHzisvZUgvBfpp0Td/vM13tNb3OM+BQvQC+mSJhG+kay3zI6jSFzFlLiJLLuszIJnf2f1lnCynyjMxmC+tsFCkWoINTEhm24a/xD7AYRPJWVC8v05yyGeNLWqeyQjhaUZenyoMSiyW6HhOjhrA0tFMS1HrsVPjiE12JxQsCuuQPmrGU60o75dpzlJHPdM07IsVREm3IXzSt+WFAQKxRlEHpG1PwRlWhcmb5zNlNq9ZUp5UgkclkggKiQ7ngIJemUZagz401POoihyA5lqCgSDe749sZvxeVNJFbj8j8cYMsm7+8rAsk7CheA8HhG41PyTRmPOWSs5hMLsmrBFamsWCx5wnzS5JxP20rcuCYo6TipewGIjFuugqDicbALeiWUi2AtqCp+IePACCQOWzRBh6JWiXBAirA1kCu6riabIEgMpdwwEdO3hVgsZAzaAud3GMNnLKPn0JoD2NXz2asoaWmbMvXHjtXip2amcai5eaqx011asnRRJ9f8vBAniLSmFzt8dfj8Ji8Vo53oyCq559cU9U8z9MQAMplH4JDyoLmxiHhQ9HaXVSd/eeisOdchKpSPpuqfvaJdw5R6MybZHqbHRZZ213i5hwGzgremt2xpX+NPeMG868TC+VR1GuoUZ6ytok1RoE7TN2EkRFhhwfLMVnmJaeLW7dOQisS3SlcN82u4ILt8jytOFEZDaKSfp+ZgchvSDBl5oveLqoWpHuq0029ZtXstt5ot7OeBvpqcjp1GmtfQ7DEJdApObf0GNj6NUnHbT0KBL7VMFAzMPSuPlif6lIS7M3ImPZCQJktz0bzr6CeC/0bSkgCBoZ/PRPnRlASF0cb91F9np3ZLarXhZlzlGQ48Pj8ljFnEmynuXqeigVpmEoZc6YIONjQJgB9/RO+wPSXl0ICjOTVecti0/ja4cn0rqlykIw7g1VXZmbHwxxNmwT2+nTUWveHaMMEPvnFlnvhNHFs0H6TQFDfHwbq6n+CutoDqi/bA6qvHAR1r5oH6l7tZ4L6Lg8S1Tw7GlC9cVeD2hztw2hpxxQwU5n12meArthH2g27tHVVTuu1ryJU1d/HKgL2A8sBzNPFwmbgYRHiVwCL1bOwCLLpCSwCLPvpWLj/IeSVwGL9h2hhJPrvAex+rdXHPC/IW7wKfLsUZFVDZc/qA98GXr3KCGefsOVvtYD7G+1b22ab5iicKQ8j834TNuk+2t7Fbe5n+8IFH9NIOE+1jkglaOV3Ri5OTpor4rGX95/8u8iY+YsIcg1kXyoVSLy5jF3c7WKnxgvSj3Ndl3qmsoH8OAutgoG6jwhTdDd4ckAM3Eo/DkC0I4ZB78lAn/n93koykGOIk5Oer0DOMFiIrOZXvhc4DII5mXYOchiTBvjHfwFEAh97</source>
+  </file>
+  <package name="ClearCode" full_name="ClearCode">
+    <package name="Database" full_name="ClearCode\Database"/>
+    <package name="Library" full_name="ClearCode\Library"/>
+    <package name="User" full_name="ClearCode\User"/>
+  </package>
+  <package name="global" full_name="global"/>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>

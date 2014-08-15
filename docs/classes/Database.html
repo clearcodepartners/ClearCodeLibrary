@@ -1,0 +1,1222 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>ClearCode Library » \Database</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">ClearCode Library</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/ClearCode.html"><i class="icon-folder-open"></i> ClearCode</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___destruct" title="__destruct() :: Destructor"><span class="description">Destructor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method___get" title='__get() :: "Magic" Getter'><span class="description">"Magic" Getter</span><pre>__get()</pre></a></li>
+<li class="method public "><a href="#method___isset" title='__isset() :: "Magic" isset Handler'><span class="description">"Magic" isset Handler</span><pre>__isset()</pre></a></li>
+<li class="method public "><a href="#method___set" title='__set() :: "Magic" Setter'><span class="description">"Magic" Setter</span><pre>__set()</pre></a></li>
+<li class="method public "><a href="#method___unset" title='__unset() :: "Magic" unset Handler'><span class="description">"Magic" unset Handler</span><pre>__unset()</pre></a></li>
+<li class="method public "><a href="#method_clear_queue" title="clear_queue() :: Clear Queue w/o Processing"><span class="description">Clear Queue w/o Processing</span><pre>clear_queue()</pre></a></li>
+<li class="method public "><a href="#method_connect" title="connect() :: Connect to database"><span class="description">Connect to database</span><pre>connect()</pre></a></li>
+<li class="method public "><a href="#method_d" title="d() :: Do Database Delete"><span class="description">Do Database Delete</span><pre>d()</pre></a></li>
+<li class="method public "><a href="#method_debug" title="debug() :: Debug"><span class="description">Debug</span><pre>debug()</pre></a></li>
+<li class="method public "><a href="#method_debug_off" title="debug_off() :: Turn Debugging Off"><span class="description">Turn Debugging Off</span><pre>debug_off()</pre></a></li>
+<li class="method public "><a href="#method_debug_on" title="debug_on() :: Turn Debugging On"><span class="description">Turn Debugging On</span><pre>debug_on()</pre></a></li>
+<li class="method public "><a href="#method_delete" title="delete() :: Do Database Delete"><span class="description">Do Database Delete</span><pre>delete()</pre></a></li>
+<li class="method public "><a href="#method_disconnect" title="disconnect() :: Disconnect from Database"><span class="description">Disconnect from Database</span><pre>disconnect()</pre></a></li>
+<li class="method public "><a href="#method_dump" title="dump() :: "><span class="description">dump()
+        </span><pre>dump()</pre></a></li>
+<li class="method public "><a href="#method_end_queue" title="end_queue() :: End Queue"><span class="description">End Queue</span><pre>end_queue()</pre></a></li>
+<li class="method public "><a href="#method_err" title="err() :: Get Mysql Error"><span class="description">Get Mysql Error</span><pre>err()</pre></a></li>
+<li class="method public "><a href="#method_get_ip" title="get_ip() :: Get IP address"><span class="description">Get IP address</span><pre>get_ip()</pre></a></li>
+<li class="method public "><a href="#method_get_primary_key" title="get_primary_key() :: Get Primary Key of Table"><span class="description">Get Primary Key of Table</span><pre>get_primary_key()</pre></a></li>
+<li class="method public "><a href="#method_i" title="i() :: Do Database Insert"><span class="description">Do Database Insert</span><pre>i()</pre></a></li>
+<li class="method public "><a href="#method_insert" title="insert() :: Do Database Insert"><span class="description">Do Database Insert</span><pre>insert()</pre></a></li>
+<li class="method public "><a href="#method_insert_id" title="insert_id() :: Get Insert Id"><span class="description">Get Insert Id</span><pre>insert_id()</pre></a></li>
+<li class="method public "><a href="#method_load_defaults" title="load_defaults() :: Load Default Information"><span class="description">Load Default Information</span><pre>load_defaults()</pre></a></li>
+<li class="method public "><a href="#method_load_metadata" title="load_metadata() :: Load MetaData"><span class="description">Load MetaData</span><pre>load_metadata()</pre></a></li>
+<li class="method public "><a href="#method_load_user" title="load_user() :: Load User"><span class="description">Load User</span><pre>load_user()</pre></a></li>
+<li class="method public "><a href="#method_process_queue" title="process_queue() :: Process Queue"><span class="description">Process Queue</span><pre>process_queue()</pre></a></li>
+<li class="method public "><a href="#method_q" title="q() :: Run Query"><span class="description">Run Query</span><pre>q()</pre></a></li>
+<li class="method public "><a href="#method_queue" title="queue() :: Queue"><span class="description">Queue</span><pre>queue()</pre></a></li>
+<li class="method public "><a href="#method_s" title="s() :: Do Select"><span class="description">Do Select</span><pre>s()</pre></a></li>
+<li class="method public "><a href="#method_select" title="select() :: Select"><span class="description">Select</span><pre>select()</pre></a></li>
+<li class="method public "><a href="#method_select_assoc" title="select_assoc() :: Select Associative Array"><span class="description">Select Associative Array</span><pre>select_assoc()</pre></a></li>
+<li class="method public "><a href="#method_select_numeric" title="select_numeric() :: Select Numeric Array"><span class="description">Select Numeric Array</span><pre>select_numeric()</pre></a></li>
+<li class="method public "><a href="#method_select_single_assoc" title="select_single_assoc() :: Select Single Associative Array"><span class="description">Select Single Associative Array</span><pre>select_single_assoc()</pre></a></li>
+<li class="method public "><a href="#method_select_single_numeric" title="select_single_numeric() :: Select Single Numeric Array"><span class="description">Select Single Numeric Array</span><pre>select_single_numeric()</pre></a></li>
+<li class="method public "><a href="#method_select_var" title="select_var() :: Select Variable"><span class="description">Select Variable</span><pre>select_var()</pre></a></li>
+<li class="method public "><a href="#method_start_queue" title="start_queue() :: Start Queue"><span class="description">Start Queue</span><pre>start_queue()</pre></a></li>
+<li class="method public "><a href="#method_u" title="u() :: Do Database Update"><span class="description">Do Database Update</span><pre>u()</pre></a></li>
+<li class="method public "><a href="#method_update" title="update() :: Do Database Update"><span class="description">Do Database Update</span><pre>update()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_clean_value" title="clean_value() :: Clean Mysql Value"><span class="description">Clean Mysql Value</span><pre>clean_value()</pre></a></li>
+<li class="method private "><a href="#method_get_cols" title="get_cols() :: Get Columns"><span class="description">Get Columns</span><pre>get_cols()</pre></a></li>
+<li class="method private "><a href="#method_get_tables" title="get_tables() :: Get Tables"><span class="description">Get Tables</span><pre>get_tables()</pre></a></li>
+<li class="method private "><a href="#method_is_date" title="is_date() :: Is Column Type Date or Time"><span class="description">Is Column Type Date or Time</span><pre>is_date()</pre></a></li>
+<li class="method private "><a href="#method_is_numeric" title="is_numeric() :: Is Column Type Numeric"><span class="description">Is Column Type Numeric</span><pre>is_numeric()</pre></a></li>
+<li class="method private "><a href="#method_is_string" title="is_string() :: Is Column Type String"><span class="description">Is Column Type String</span><pre>is_string()</pre></a></li>
+<li class="method private "><a href="#method_make_delete" title="make_delete() :: Make Delete String"><span class="description">Make Delete String</span><pre>make_delete()</pre></a></li>
+<li class="method private "><a href="#method_make_insert" title="make_insert() :: Make Insert String"><span class="description">Make Insert String</span><pre>make_insert()</pre></a></li>
+<li class="method private "><a href="#method_make_update" title="make_update() :: Make Update String"><span class="description">Make Update String</span><pre>make_update()</pre></a></li>
+<li class="method private "><a href="#method_table" title="table() :: Get Table Alias"><span class="description">Get Table Alias</span><pre>table()</pre></a></li>
+<li class="method private "><a href="#method_where" title="where() :: Build Where Conditions"><span class="description">Build Where Conditions</span><pre>where()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul>
+<li class="property public "><a href="#property_connected" title="$connected() :: Is Currently Connected"><span class="description"></span><pre>$connected</pre></a></li>
+<li class="property public "><a href="#property_current_type" title="$current_type() :: Current Type"><span class="description"></span><pre>$current_type</pre></a></li>
+<li class="property public "><a href="#property_current_user" title="$current_user() :: Current User"><span class="description"></span><pre>$current_user</pre></a></li>
+<li class="property public "><a href="#property_data" title='$data() :: "Magic" Data array'><span class="description"></span><pre>$data</pre></a></li>
+<li class="property public "><a href="#property_db" title="$db() :: Database Object"><span class="description"></span><pre>$db</pre></a></li>
+<li class="property public "><a href="#property_debug" title="$debug() :: Debug Status"><span class="description"></span><pre>$debug</pre></a></li>
+<li class="property public "><a href="#property_id" title="$id() :: ID"><span class="description"></span><pre>$id</pre></a></li>
+<li class="property public "><a href="#property_link" title="$link() :: Database Link"><span class="description"></span><pre>$link</pre></a></li>
+<li class="property public "><a href="#property_metadata" title="$metadata() :: MetaData Object"><span class="description"></span><pre>$metadata</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_DEBUG" title="$DEBUG() :: Debug"><span class="description"></span><pre>$DEBUG</pre></a></li>
+<li class="property private "><a href="#property_cache" title="$cache() :: Query Cache"><span class="description"></span><pre>$cache</pre></a></li>
+<li class="property private "><a href="#property_db_name" title="$db_name() :: Database Name"><span class="description"></span><pre>$db_name</pre></a></li>
+<li class="property private "><a href="#property_queue_array" title="$queue_array() :: Query Queue"><span class="description"></span><pre>$queue_array</pre></a></li>
+<li class="property private "><a href="#property_queue_status" title="$queue_status() :: Queue Status"><span class="description"></span><pre>$queue_status</pre></a></li>
+<li class="property private "><a href="#property_table_alias" title="$table_alias() :: Table Alias Array"><span class="description"></span><pre>$table_alias</pre></a></li>
+<li class="property private "><a href="#property_tables" title="$tables() :: Tables"><span class="description"></span><pre>$tables</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Database"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Database.html">Database</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">The Database Interface Library</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/ClearCode.Database.html">ClearCode\Database</a></td>
+</tr>
+<tr>
+<th>todo</th>
+<td>* Add a filters api for a specific table::column relationship ( example: run md5() on user::password when changed )
+* Add "Add Table", "Edit Table", and "Drop Table"
+* Add "Add Column", "Edit Column", and "Drop Column"
+*</td>
+</tr>
+</table>
+<h3>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___destruct"></a><div class="element clickable method public method___destruct" data-toggle="collapse" data-target=".method___destruct .collapse" title="public">
+<h2>Destructor</h2>
+<pre>__destruct() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>uses</th>
+<td><a href="Database::disconnect()">to close the database connection</a></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method___get"></a><div class="element clickable method public method___get" data-toggle="collapse" data-target=".method___get .collapse" title="public">
+<h2>"Magic" Getter</h2>
+<pre>__get(string $n) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$n</h4>
+<code>string</code><p>Name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>Value</div>
+</div></div>
+</div>
+<a id="method___isset"></a><div class="element clickable method public method___isset" data-toggle="collapse" data-target=".method___isset .collapse" title="public">
+<h2>"Magic" isset Handler</h2>
+<pre>__isset(string $n) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Is the specified "Magic" value set?</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$n</h4>
+<code>string</code><p>Name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>is $n set</div>
+</div></div>
+</div>
+<a id="method___set"></a><div class="element clickable method public method___set" data-toggle="collapse" data-target=".method___set .collapse" title="public">
+<h2>"Magic" Setter</h2>
+<pre>__set(string $n, string $v) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$n</h4>
+<code>string</code><p>Name</p></div>
+<div class="subelement argument">
+<h4>$v</h4>
+<code>string</code><p>Value</p></div>
+</div></div>
+</div>
+<a id="method___unset"></a><div class="element clickable method public method___unset" data-toggle="collapse" data-target=".method___unset .collapse" title="public">
+<h2>"Magic" unset Handler</h2>
+<pre>__unset(string $n) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Unsets the specified "Magic" value</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$n</h4>
+<code>string</code><p>Name</p></div>
+</div></div>
+</div>
+<a id="method_clear_queue"></a><div class="element clickable method public method_clear_queue" data-toggle="collapse" data-target=".method_clear_queue .collapse" title="public">
+<h2>Clear Queue w/o Processing</h2>
+<pre>clear_queue() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_connect"></a><div class="element clickable method public method_connect" data-toggle="collapse" data-target=".method_connect .collapse" title="public">
+<h2>Connect to database</h2>
+<pre>connect(string $host, string $user, string $pass, string $db) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$host</h4>
+<code>string</code><p>host (IP/URL/localhost)</p></div>
+<div class="subelement argument">
+<h4>$user</h4>
+<code>string</code><p>Username</p></div>
+<div class="subelement argument">
+<h4>$pass</h4>
+<code>string</code><p>Password</p></div>
+<div class="subelement argument">
+<h4>$db</h4>
+<code>string</code><p>Database Name</p></div>
+</div></div>
+</div>
+<a id="method_d"></a><div class="element clickable method public method_d" data-toggle="collapse" data-target=".method_d .collapse" title="public">
+<h2>Do Database Delete</h2>
+<pre>d(string $table, mixed[] $where<code> = false</code>) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to delete from</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>mixed[]</code><p>{@see Database::where()}</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_debug"></a><div class="element clickable method public method_debug" data-toggle="collapse" data-target=".method_debug .collapse" title="public">
+<h2>Debug</h2>
+<pre>debug(bool|null $p<code> = null</code>) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Call with no parameters to get current debug status
+Call with a parameter to set the current debug status</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$p</h4>
+<code>bool</code><code>null</code><p>Controll</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Current debug status</div>
+</div></div>
+</div>
+<a id="method_debug_off"></a><div class="element clickable method public method_debug_off" data-toggle="collapse" data-target=".method_debug_off .collapse" title="public">
+<h2>Turn Debugging Off</h2>
+<pre>debug_off() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_debug_on"></a><div class="element clickable method public method_debug_on" data-toggle="collapse" data-target=".method_debug_on .collapse" title="public">
+<h2>Turn Debugging On</h2>
+<pre>debug_on() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_delete"></a><div class="element clickable method public method_delete" data-toggle="collapse" data-target=".method_delete .collapse" title="public">
+<h2>Do Database Delete</h2>
+<pre>delete(string $table, mixed[] $where<code> = false</code>) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to delete from</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>mixed[]</code><p>{@see Database::where()}</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_disconnect"></a><div class="element clickable method public method_disconnect" data-toggle="collapse" data-target=".method_disconnect .collapse" title="public">
+<h2>Disconnect from Database</h2>
+<pre>disconnect() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_dump"></a><div class="element clickable method public method_dump" data-toggle="collapse" data-target=".method_dump .collapse" title="public">
+<h2>dump()
+        </h2>
+<pre>dump() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_end_queue"></a><div class="element clickable method public method_end_queue" data-toggle="collapse" data-target=".method_end_queue .collapse" title="public">
+<h2>End Queue</h2>
+<pre>end_queue() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="%5CDatabase::queue()"></a></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Current Status</div>
+</div></div>
+</div>
+<a id="method_err"></a><div class="element clickable method public method_err" data-toggle="collapse" data-target=".method_err .collapse" title="public">
+<h2>Get Mysql Error</h2>
+<pre>err() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>mysql_error</div>
+</div></div>
+</div>
+<a id="method_get_ip"></a><div class="element clickable method public method_get_ip" data-toggle="collapse" data-target=".method_get_ip .collapse" title="public">
+<h2>Get IP address</h2>
+<pre>get_ip() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>IP address</div>
+</div></div>
+</div>
+<a id="method_get_primary_key"></a><div class="element clickable method public method_get_primary_key" data-toggle="collapse" data-target=".method_get_primary_key .collapse" title="public">
+<h2>Get Primary Key of Table</h2>
+<pre>get_primary_key(string $table) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Primary Key Column Name</div>
+</div></div>
+</div>
+<a id="method_i"></a><div class="element clickable method public method_i" data-toggle="collapse" data-target=".method_i .collapse" title="public">
+<h2>Do Database Insert</h2>
+<pre>i(string $table, array $arr<code> = array()</code>) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to insert too</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the Array of info to insert, where key is the column name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>insert_id on success, FALSE on fail</div>
+</div></div>
+</div>
+<a id="method_insert"></a><div class="element clickable method public method_insert" data-toggle="collapse" data-target=".method_insert .collapse" title="public">
+<h2>Do Database Insert</h2>
+<pre>insert(string $table, array $arr<code> = array()</code>) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to insert too</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the Array of info to insert, where key is the column name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>insert_id on success, FALSE on fail</div>
+</div></div>
+</div>
+<a id="method_insert_id"></a><div class="element clickable method public method_insert_id" data-toggle="collapse" data-target=".method_insert_id .collapse" title="public">
+<h2>Get Insert Id</h2>
+<pre>insert_id() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The Insert Id</div>
+</div></div>
+</div>
+<a id="method_load_defaults"></a><div class="element clickable method public method_load_defaults" data-toggle="collapse" data-target=".method_load_defaults .collapse" title="public">
+<h2>Load Default Information</h2>
+<pre>load_defaults(array $arr<code> = array()</code>) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Loads the default "Magic" data, Sets the Debug variable, and Includes the Database Class</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>The Default "Magic" data ex: [ "Name" => "Value", ... ]</p></div>
+</div></div>
+</div>
+<a id="method_load_metadata"></a><div class="element clickable method public method_load_metadata" data-toggle="collapse" data-target=".method_load_metadata .collapse" title="public">
+<h2>Load MetaData</h2>
+<pre>load_metadata() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description">Loads the MetaData Object for the current Object</div></div></div>
+</div>
+<a id="method_load_user"></a><div class="element clickable method public method_load_user" data-toggle="collapse" data-target=".method_load_user .collapse" title="public">
+<h2>Load User</h2>
+<pre>load_user() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Sets the Current User</div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="%5CLib::current_user"></a></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_process_queue"></a><div class="element clickable method public method_process_queue" data-toggle="collapse" data-target=".method_process_queue .collapse" title="public">
+<h2>Process Queue</h2>
+<pre>process_queue() : mixed[]</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed[]</code>An array of the queued database results, in order</div>
+</div></div>
+</div>
+<a id="method_q"></a><div class="element clickable method public method_q" data-toggle="collapse" data-target=".method_q .collapse" title="public">
+<h2>Run Query</h2>
+<pre>q(string $q, string $type<code> = ''</code>, string $col<code> = ''</code>, bool $silent<code> = false</code>) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">* Runs a MySQL Query on the database.</div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$q</h4>
+<code>string</code><p>Mysql Query to Run</p></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Type of Return</p>
+<ul>
+<li>'a', 'assoc'          : Returns an Associative Array of Associative Arrays where the Key value of the outside array is equal too $col</li>
+<li>'n', 'numeric         : Returns an Array of Numeric Arrays</li>
+<li>'sa', 'single_assoc'   : Returns a Single Associative Array</li>
+<li>'sn', 'single_numeric  : Returns a Single Numeric Array</li>
+<li>'v', 'value'          : Returns a Single Value from the column set with $col from the first result row found</li>
+<li>'i', 'insert'         : Use only for Insert statements.  Returns the Insert Id</li>
+<li>'u', 'update'         : Use only for Update statements.  Returns the number of results updated.</li>
+<li>'d', 'delete'         : Use only for Delete statements. Returns the number of rows deleted.</li>
+</ul></div>
+<div class="subelement argument">
+<h4>$col</h4>
+<code>string</code><p>Column modifier specific to type</p></div>
+<div class="subelement argument">
+<h4>$silent</h4>
+<code>bool</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>formatted return type</div>
+</div></div>
+</div>
+<a id="method_queue"></a><div class="element clickable method public method_queue" data-toggle="collapse" data-target=".method_queue .collapse" title="public">
+<h2>Queue</h2>
+<pre>queue(boolean|null $status<code> = null</code>) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>public</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$status</h4>
+<code>boolean</code><code>null</code><p>Status (null returns current, boolean set)</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Current Status</div>
+</div></div>
+</div>
+<a id="method_s"></a><div class="element clickable method public method_s" data-toggle="collapse" data-target=".method_s .collapse" title="public">
+<h2>Do Select</h2>
+<pre>s(string|string[]|array[] $table, mixed[] $fields<code> = array("*")</code>, mixed[] $where<code> = array()</code>, string $type<code> = 'a'</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::q()">for $type syntax</a></td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Add "as" support</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Add "join" support</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><code>string[]</code><code>array[]</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>mixed[]</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>mixed[]</code><p>Where Information</p></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Type of Data to return</p></div>
+</div></div>
+</div>
+<a id="method_select"></a><div class="element clickable method public method_select" data-toggle="collapse" data-target=".method_select .collapse" title="public">
+<h2>Select</h2>
+<pre>select(string $table, array $fields, array $where, string $type) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Alias for Database::s()</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::q()">for $type syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Type of Data to return</p></div>
+</div></div>
+</div>
+<a id="method_select_assoc"></a><div class="element clickable method public method_select_assoc" data-toggle="collapse" data-target=".method_select_assoc .collapse" title="public">
+<h2>Select Associative Array</h2>
+<pre>select_assoc(string $table, array $fields, array $where) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Runs a Select query against the database using Database::s() and returns an Associative Array</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Associative Array of Results</div>
+</div></div>
+</div>
+<a id="method_select_numeric"></a><div class="element clickable method public method_select_numeric" data-toggle="collapse" data-target=".method_select_numeric .collapse" title="public">
+<h2>Select Numeric Array</h2>
+<pre>select_numeric(string $table, array $fields, array $where) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Runs a Select query against the database using Database::s() and returns a Numeric Array</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Numeric Array of Results</div>
+</div></div>
+</div>
+<a id="method_select_single_assoc"></a><div class="element clickable method public method_select_single_assoc" data-toggle="collapse" data-target=".method_select_single_assoc .collapse" title="public">
+<h2>Select Single Associative Array</h2>
+<pre>select_single_assoc(string $table, array $fields, array $where) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Runs a Select query against the database using Database::s() and returns an Associative Array for a single result</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Associative Array of Single Result</div>
+</div></div>
+</div>
+<a id="method_select_single_numeric"></a><div class="element clickable method public method_select_single_numeric" data-toggle="collapse" data-target=".method_select_single_numeric .collapse" title="public">
+<h2>Select Single Numeric Array</h2>
+<pre>select_single_numeric(string $table, array $fields, array $where) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Runs a Select query against the database using Database::s() and returns a Numeric Array for a single result</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Fields</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Numeric Array of Single Result</div>
+</div></div>
+</div>
+<a id="method_select_var"></a><div class="element clickable method public method_select_var" data-toggle="collapse" data-target=".method_select_var .collapse" title="public">
+<h2>Select Variable</h2>
+<pre>select_var(string $table, array $field, array $where) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Runs a Select query against the database using Database::s() and returns a single variable from a single result</div>
+<table class="table table-bordered">
+<tr>
+<th>uses</th>
+<td><a href="Database::s()">for everything;</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5CDatabase::where()">for $where syntax</a></td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$field</h4>
+<code>array</code><p>Field</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>Where Information</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>The variable to return</div>
+</div></div>
+</div>
+<a id="method_start_queue"></a><div class="element clickable method public method_start_queue" data-toggle="collapse" data-target=".method_start_queue .collapse" title="public">
+<h2>Start Queue</h2>
+<pre>start_queue() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="%5CDatabase::queue()"></a></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Current Status</div>
+</div></div>
+</div>
+<a id="method_u"></a><div class="element clickable method public method_u" data-toggle="collapse" data-target=".method_u .collapse" title="public">
+<h2>Do Database Update</h2>
+<pre>u(string $table, array $arr<code> = array()</code>, mixed[] $where<code> = false</code>) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to update</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the data to update [ column => value ]</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>mixed[]</code><p>{@see Database::where()}</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_update"></a><div class="element clickable method public method_update" data-toggle="collapse" data-target=".method_update .collapse" title="public">
+<h2>Do Database Update</h2>
+<pre>update(string $table, array $arr<code> = array()</code>, mixed[] $where<code> = false</code>) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to update</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the data to update [ column => value ]</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>mixed[]</code><p>{@see Database::where()}</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_clean_value"></a><div class="element clickable method private method_clean_value" data-toggle="collapse" data-target=".method_clean_value .collapse" title="private">
+<h2>Clean Mysql Value</h2>
+<pre>clean_value(string $table, string $column, string $value) : string | bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>Table Name</p></div>
+<div class="subelement argument">
+<h4>$column</h4>
+<code>string</code><p>Column Name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>Raw Value</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>bool</code>Parsed Value</div>
+</div></div>
+</div>
+<a id="method_get_cols"></a><div class="element clickable method private method_get_cols" data-toggle="collapse" data-target=".method_get_cols .collapse" title="private">
+<h2>Get Columns</h2>
+<pre>get_cols(string $table) : array[]</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to get the columns from</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array[]</code>Column Name => [ Type, Length, Null, Default ]</div>
+</div></div>
+</div>
+<a id="method_get_tables"></a><div class="element clickable method private method_get_tables" data-toggle="collapse" data-target=".method_get_tables .collapse" title="private">
+<h2>Get Tables</h2>
+<pre>get_tables() : array[]</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array[]</code>TableName => Columns</div>
+</div></div>
+</div>
+<a id="method_is_date"></a><div class="element clickable method private method_is_date" data-toggle="collapse" data-target=".method_is_date .collapse" title="private">
+<h2>Is Column Type Date or Time</h2>
+<pre>is_date(string $type) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Column Type</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_is_numeric"></a><div class="element clickable method private method_is_numeric" data-toggle="collapse" data-target=".method_is_numeric .collapse" title="private">
+<h2>Is Column Type Numeric</h2>
+<pre>is_numeric(string $type) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Column Type</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_is_string"></a><div class="element clickable method private method_is_string" data-toggle="collapse" data-target=".method_is_string .collapse" title="private">
+<h2>Is Column Type String</h2>
+<pre>is_string(string $type) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Column Type</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_make_delete"></a><div class="element clickable method private method_make_delete" data-toggle="collapse" data-target=".method_make_delete .collapse" title="private">
+<h2>Make Delete String</h2>
+<pre>make_delete(string $table, $where<code> = false</code>) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to insert too</p></div>
+<div class="subelement argument"><h4>$where</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>the delete query</div>
+</div></div>
+</div>
+<a id="method_make_insert"></a><div class="element clickable method private method_make_insert" data-toggle="collapse" data-target=".method_make_insert .collapse" title="private">
+<h2>Make Insert String</h2>
+<pre>make_insert(string $table, array $arr<code> = array()</code>) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to insert too</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the Array of info to insert, where key is the column name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>the insert query</div>
+</div></div>
+</div>
+<a id="method_make_update"></a><div class="element clickable method private method_make_update" data-toggle="collapse" data-target=".method_make_update .collapse" title="private">
+<h2>Make Update String</h2>
+<pre>make_update(string $table, array $arr<code> = array()</code>, array $where<code> = false</code>) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>The table to insert too</p></div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>the data to update [ column => value ]</p></div>
+<div class="subelement argument">
+<h4>$where</h4>
+<code>array</code><p>where info</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>the insert query</div>
+</div></div>
+</div>
+<a id="method_table"></a><div class="element clickable method private method_table" data-toggle="collapse" data-target=".method_table .collapse" title="private">
+<h2>Get Table Alias</h2>
+<pre>table(string $n, string[] $as_arr<code> = array()</code>) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>uses</th>
+<td><a href="Database::%24table_alias">to check for any aliases to return</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$n</h4>
+<code>string</code><p>name</p></div>
+<div class="subelement argument">
+<h4>$as_arr</h4>
+<code>string[]</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Alias</div>
+</div></div>
+</div>
+<a id="method_where"></a><div class="element clickable method private method_where" data-toggle="collapse" data-target=".method_where .collapse" title="private">
+<h2>Build Where Conditions</h2>
+<pre>where(array[] $args, $table, $as_arr<code> = array()</code>) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">where_arr = [ 'Column' (required) , 'Value' (required) , 'Comparitor' (optional), 'Joiner' (optional) ]
+
+Usage: [ ['id','1', '=', 'AND'], [ ['username', 'joe'], ['password','schmoe'], " OR "] ]
+
+Result: `id` = '1' OR ( `username` = "joe" AND `password` = "schmoe" )</div>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>add support for table.col = table2.col</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$args</h4>
+<code>array[]</code><p>A multidimentional array in a mix of these formats:</p>
+<ul>
+<li>[ where_arr,where_arr,... ]</li>
+<li>[ [ where_arr,where_arr,... 'Joiner' ], ...]</li>
+</ul></div>
+<div class="subelement argument"><h4>$table</h4></div>
+<div class="subelement argument"><h4>$as_arr</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Where String</div>
+</div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_connected"> </a><div class="element clickable property public property_connected" data-toggle="collapse" data-target=".property_connected .collapse" title="public">
+<h2>Is Currently Connected</h2>
+<pre>$connected : boolean</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>false</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_current_type"> </a><div class="element clickable property public property_current_type" data-toggle="collapse" data-target=".property_current_type .collapse" title="public">
+<h2>Current Type</h2>
+<pre>$current_type </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>""</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_current_user"> </a><div class="element clickable property public property_current_user" data-toggle="collapse" data-target=".property_current_user .collapse" title="public">
+<h2>Current User</h2>
+<pre>$current_user : \User</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="%5C%24GLOBALS%5B'user'%5D"></a></td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_data"> </a><div class="element clickable property public property_data" data-toggle="collapse" data-target=".property_data .collapse" title="public">
+<h2>"Magic" Data array</h2>
+<pre>$data : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_db"> </a><div class="element clickable property public property_db" data-toggle="collapse" data-target=".property_db .collapse" title="public">
+<h2>Database Object</h2>
+<pre>$db : \Database</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td><a href="%5C%24GLOBALS%5B'db'%5D"></a></td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_debug"> </a><div class="element clickable property public property_debug" data-toggle="collapse" data-target=".property_debug .collapse" title="public">
+<h2>Debug Status</h2>
+<pre>$debug : bool</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>false</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property public property_id" data-toggle="collapse" data-target=".property_id .collapse" title="public">
+<h2>ID</h2>
+<pre>$id : null | int</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>null</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_link"> </a><div class="element clickable property public property_link" data-toggle="collapse" data-target=".property_link .collapse" title="public">
+<h2>Database Link</h2>
+<pre>$link : resource</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_metadata"> </a><div class="element clickable property public property_metadata" data-toggle="collapse" data-target=".property_metadata .collapse" title="public">
+<h2>MetaData Object</h2>
+<pre>$metadata : \MetaData</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>null</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_DEBUG"> </a><div class="element clickable property private property_DEBUG" data-toggle="collapse" data-target=".property_DEBUG .collapse" title="private">
+<h2>Debug</h2>
+<pre>$DEBUG </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>false</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_cache"> </a><div class="element clickable property private property_cache" data-toggle="collapse" data-target=".property_cache .collapse" title="private">
+<h2>Query Cache</h2>
+<pre>$cache : array[]</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_db_name"> </a><div class="element clickable property private property_db_name" data-toggle="collapse" data-target=".property_db_name .collapse" title="private">
+<h2>Database Name</h2>
+<pre>$db_name </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>""</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_queue_array"> </a><div class="element clickable property private property_queue_array" data-toggle="collapse" data-target=".property_queue_array .collapse" title="private">
+<h2>Query Queue</h2>
+<pre>$queue_array : array[]</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_queue_status"> </a><div class="element clickable property private property_queue_status" data-toggle="collapse" data-target=".property_queue_status .collapse" title="private">
+<h2>Queue Status</h2>
+<pre>$queue_status : bool</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>false</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_table_alias"> </a><div class="element clickable property private property_table_alias" data-toggle="collapse" data-target=".property_table_alias .collapse" title="private">
+<h2>Table Alias Array</h2>
+<pre>$table_alias : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array('users' => 'user')</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_tables"> </a><div class="element clickable property private property_tables" data-toggle="collapse" data-target=".property_tables .collapse" title="private">
+<h2>Tables</h2>
+<pre>$tables </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
+</a> and<br>
+            generated on 2014-05-04T17:21:32-04:00.<br></footer></div>
+</div>
+</body>
+</html>
